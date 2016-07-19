@@ -108,8 +108,14 @@
 						<a href="<?php echo $home; ?>"><?php echo $name; ?></a>
 					</h1>
 				<?php } ?>
-			</div>	
-			<div class="phone"><i class="fa fa-phone"></i><?php echo $telephone; ?></div>		
+			</div>
+            <!-- TODO replace hardcoded numbers to admin settings handle of comma separated numbers in input -->
+            <?php $telephone = array(); $telephone[0] = "+380975277018"; $telephone[1] = "+380506698515"; ?>
+            <div class="phone">
+                <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></div>
+                <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></div>
+            </div>
+			<!-- <div class="phone"><i class="fa fa-phone"></i><?php echo $telephone; ?></div> -->
 			<?php echo $search; ?>			
 		</div>
 

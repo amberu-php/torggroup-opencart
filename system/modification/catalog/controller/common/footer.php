@@ -68,6 +68,14 @@ class ControllerCommonFooter extends Controller {
 			$data['telephone'] = $this->config->get('config_telephone');
 			$data['fax'] = $this->config->get('config_fax');
 			
+		//AMBERU
+		$data['store'] = $this->config->get('config_name');
+		$data['store_owner'] = $this->config->get('config_owner');
+		$data['store_email'] = $this->config->get('config_email');
+		$data['geocode'] = $this->config->get('config_geocode');
+		$data['open'] = nl2br($this->config->get('config_open'));
+		$data['comment'] = $this->config->get('config_comment');
+			
 			
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));

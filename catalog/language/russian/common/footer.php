@@ -30,5 +30,5 @@ $_['text_wishlist']     = 'Закладки';
 
 $_['text_newsletter']   = 'Рассылка';
 
-$_['text_powered']      = 'Работает на <a href="http://opencart-russia.ru">OpenCart</a><br /> %s &copy; %s';
+$_['text_powered']      = 'Designed & developed by SKVM %s &copy; %s';
 

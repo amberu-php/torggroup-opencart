@@ -127,10 +127,11 @@
     margin-bottom: 32px; }
   .cameraContent .camera_caption .tx-price {
     display: inline-block;
-    color: #b14e4e;
+    color: #00BBE0;
     font-size: 48px;
     line-height: 58px;
-    font-weight: 300;
+    font-weight: 600;
+	text-shadow: 3px 3px 2px rgba(150, 150, 150, 1);
     margin-top: 28px;
     margin-bottom: 32px; }
   .cameraContent .camera_caption a {
@@ -140,11 +141,11 @@
     padding: 18px 70px;
     font-weight: bold;
     color: #242424;
-    background: #fabf21;
+    background: #82C600;
     text-transform: uppercase; }
     .cameraContent .camera_caption a:visited {
       color: #242424;
-      background: #fabf21; }
+      background: #82C600; }
     .cameraContent .camera_caption a:hover, .cameraContent .camera_caption a:focus, .cameraContent .camera_caption a:active {
       color: #fff;
       background: #3b3d40; }
@@ -188,7 +189,7 @@
     line-height: 36px; }
   .camera_prev:hover,
   .camera_next:hover {
-    color: #fabf21; }
+    color: #82C600; }
 
 .camera_prev {
   left: 10px; }

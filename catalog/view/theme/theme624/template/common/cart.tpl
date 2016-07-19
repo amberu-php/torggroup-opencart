@@ -28,7 +28,7 @@
 			<br />
 			- <small><?php echo $text_recurring; ?> <?php echo $product['recurring']; ?></small>
 			<?php } ?>
-			<div> x <?php echo $product['quantity']; ?>  <span class="price-cart"><?php echo $product['total']; ?></span></div>
+			<div> <span class="amberu-cart-qty">x <?php echo $product['quantity']; ?></span>  <span class="price-cart"><?php echo $product['total']; ?></span></div>
 			</td>
 		  
 		  <td class="text-right"></td>
@@ -57,7 +57,7 @@
 		  </tr>
 		  <?php } ?>
 		</table>
-		<div class="text-left">			
+		<div class="text-center">			
 			<a class="cart-remove-btn" href="<?php echo $checkout; ?>"><span ><?php echo $text_checkout; ?></span></a>
 			<a class="cart-remove-btn" href="<?php echo $cart; ?>"><span><?php echo $text_cart; ?></span></a>
 			</p>

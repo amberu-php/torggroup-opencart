@@ -1,0 +1,11 @@
+button: rgb(0, 187, 224) - #00BBE0
+button-hover: rgb(130, 192, 0) - #82C600
+link: rgb(0, 187, 224) - #00BBE0
+price: rgb(130, 192, 0) - #82C600
+
+slider:
+	arrow: #3E95AF
+	arrow-hover: rgb(130, 192, 0) - #82C600
+	
+footer:
+	background: rgb(22, 54, 72)
