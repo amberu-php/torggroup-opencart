@@ -2,8 +2,8 @@
 // Text
 $_['text_items']    = 'Товаров %s (%s)';
 $_['text_empty']    = 'Ваша корзина пуста!';
-$_['text_cart']     = 'Просмотр';
-$_['text_checkout'] = 'Оформление';
+$_['text_cart']     = 'Корзина';
+$_['text_checkout'] = 'Оформить';
  
 			$_['text_shopping_cart'] = 'Корзина: ';
 				
