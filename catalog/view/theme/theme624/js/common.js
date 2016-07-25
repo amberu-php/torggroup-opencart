@@ -167,13 +167,14 @@ $(document).ready(function () {
 function ajaxAdd(el, product_id) {
     var width = $(window).width();
     var selector = el.parents('.product-thumb').find('.product-option-wrap');
-    if (width > 767 && selector.length) {
+	var quantity = el.parent().find("#cart-q").first().val();
+	if (width > 767 && selector.length) {
         var overlay = $('.ajax-overlay');
         overlay.append(selector);
         overlay.addClass('visible');
         $('body').addClass('ajax-overlay-open');
     } else {
-        cart.add(product_id);
+        cart.add(product_id, quantity);
     }
 }
 

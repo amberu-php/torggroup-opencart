@@ -697,16 +697,17 @@ function replaceForm() {
     $(document).ready(function () {
         $('.counter-minus').click(function (e) {
             e.preventDefault();
-            input = $(this).parent().find('input[name*="quantity"]');
-            if (value > 1) {
+            var input = $(this).parent().find('input[name*="quantity"]').first();
+            var value = input.val();
+			if (value > 1) {
                 value = parseInt(input.val()) - 1;
                 input.val(value);
             }
         })
         $('.counter-plus').click(function (e) {
             e.preventDefault();
-            input = $(this).parent().find('input[name*="quantity"]');
-            value = parseInt(input.val()) + 1;
+            var input = $(this).parent().find('input[name*="quantity"]').first();
+            var value = parseInt(input.val()) + 1;
             input.val(value);
         })
     });
@@ -779,4 +780,53 @@ $(window).resize(function () {
     clearTimeout(this.id);
     this.id = setTimeout(respResize, 500);
 });
+// amberu
+var amberuScript = {
+	getChar: function (event) {
+		if (event.which == null) {
+			if (event.keyCode < 32) return null;
+			return String.fromCharCode(event.keyCode) // IE
+		}
 
+		if (event.which != 0 && event.charCode != 0) {
+			if (event.which < 32) return null;
+			return String.fromCharCode(event.which)
+		}
+
+		return null;
+	}
+}
+// moved from checkout/cart.tpl
+$(document).ready(function() {
+	$("#cart-q").keypress(function(e) {
+		e = e || event;
+
+		if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+		var chr = amberuScript.getChar(e);
+
+		if (chr == null) return;
+
+		if (chr < '0' || chr > '9') {
+			return false;
+		}
+	})
+});
+// pure js style
+/*
+document.getElementById('cart-q').onkeypress = function (e) {
+
+	e = e || event;
+
+	if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+	var chr = amberuScript.getChar(e);
+
+	if (chr == null) return;
+
+	if (chr < '0' || chr > '9') {
+		return false;
+	}
+
+}
+*/

@@ -1236,6 +1236,10 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
                       Product
 =========================================================*/
 /* ===================   Product Layout   =================== */
+.product-block .product-grid {
+	padding-right: 3px;
+    padding-left: 3px;
+}
 .product-thumb {
   overflow: hidden; }
   .product-thumb > div {
@@ -1322,11 +1326,16 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
   .product-thumb .cart-button {
     display: inline-block;
     width: 100%;
+	text-align: center;
     margin-top: 25px; }
     .product-thumb .cart-button .product-btn-add {
-      width: 100%;
+      /*width: 100%;*/
       padding-left: 10px;
       padding-right: 10px; }
+	.product-grid .product-thumb .cart-button .amberu-compare-btn {
+		width: 100%;
+		text-align: left;
+	}
   .product-thumb .description, .product-thumb .description-small {
     margin-bottom: 15px; }
   .product-thumb:hover .image > .quickview {
@@ -1398,7 +1407,7 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
   top: 21px;
   left: -38px;
   color: #fff;
-  background: rgb(0, 187, 224);
+  background: #e62739;
   font: bold 16px/19px "Open Sans", sans-serif;
   text-transform: uppercase;
   text-align: center;
@@ -2149,7 +2158,7 @@ select {
   height: 40px;
   width: 40px;
   color: #242424;
-  background: #efefef;
+  /*background: #efefef;*/
   line-height: 40px;
   text-align: center;
   font-size: 20px;
@@ -2159,7 +2168,21 @@ select {
     color: rgb(0, 187, 224); }
   @media (max-width: 767px) {
     .counter, .counter:focus {
-      display: none; } }
+      display: none; 
+	}
+	.cart-button .counter, .cart-button .counter:focus {
+      display: inline-block; 
+	}
+  }
+.amberu-counter-container {
+	display: inline-block;
+}
+.amberu-counter-container input[name="quantity-counter"] {
+	margin: 0px -4px;
+    padding: 0px;
+    width: 40px;
+    text-align: center;
+}
 
 @media (max-width: 767px) {
   #product .counter {

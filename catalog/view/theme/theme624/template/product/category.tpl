@@ -409,8 +409,13 @@
 				<button class="product-btn" type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart-o"></i></button>				
 				
 				<div class="cart-button">
-					<button class="product-btn" type="button" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="material-design-shuffle24"></i><span><?php echo $button_compare; ?></span></button>
-                    <button class="product-btn-add" type="button" onclick="ajaxAdd($(this),<?php echo $product['product_id'] ?>);"><?php echo $button_cart; ?></button>					
+					<button class="product-btn amberu-compare-btn" type="button" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="material-design-shuffle24"></i><span><?php echo $button_compare; ?></span></button>
+                    <div class="amberu-counter-container">
+						<a class="counter counter-minus material-design-horizontal39" href='#'></a>
+						<input type="text" name="quantity-counter" value="1" size="1" class="form-control cart-q" id="cart-q"/>
+						<a class="counter counter-plus material-design-add186" href='#'></a>
+					</div>
+					<button class="product-btn-add" type="button" onclick="ajaxAdd($(this),<?php echo $product['product_id'] ?>);"><?php echo $button_cart; ?></button>					
                 </div>
 
 				</div>
