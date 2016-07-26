@@ -1,3 +1,16 @@
+// amberu
+var amberuCommon = {
+	cart: {
+		getInputQuantityVal: function(el) {
+			return el.parent().find("#cart-q").first().val();
+		},
+		add: function(el, id) {
+			el = $(el);
+			cart.add(id, this.getInputQuantityVal(el));
+		},
+	}
+}
+
 function getURLVar(key) {
     var value = [];
 
