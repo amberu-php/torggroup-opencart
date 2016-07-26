@@ -1,0 +1,9 @@
+.htaccess.txt
+**/config.php
+crossdomain.xml
+image/
+**/php.ini
+system/cache/
+system/download/
+system/logs/
+system/upload/
