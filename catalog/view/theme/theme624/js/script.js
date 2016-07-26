@@ -798,7 +798,7 @@ var amberuScript = {
 }
 // moved from checkout/cart.tpl
 $(document).ready(function() {
-	$("#cart-q").keypress(function(e) {
+	$("input[name='quantity-counter'].cart-q").keypress(function(e) {
 		e = e || event;
 
 		if (e.ctrlKey || e.altKey || e.metaKey) return;
