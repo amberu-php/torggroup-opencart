@@ -804,8 +804,8 @@ header {
   header .top-menu {
     margin-bottom: 46px; }
   header .phone {
-    margin-left: 0;
-    margin-top: 39px; }
+    margin-left: 20px;
+    margin-top: 27px; }
   header .search {
     margin-right: 0;
     margin-top: 38px; }
@@ -830,12 +830,15 @@ header {
         font-size: 15px; } }
 @media (max-width: 767px) {
   header .logo {
+	border: none;
     width: 100%; }
   header .top-menu {
     margin-bottom: 30px; }
   header .phone, header .search {
     margin-top: 10px; }
   header .phone {
+	float: right;
+    margin-right: 25px;
     margin-left: 10px; }
   header .search {
     margin-right: 10px; }
@@ -2559,7 +2562,13 @@ input[type="checkbox"][name="agree"] + label {
   width: 240px;
   padding: 132px 0 76px;
   color: #eff0f1;
-  background: #2f3033;
+  /*background: #2f3033;*/
+	background-image: -webkit-gradient( linear, right top, left top, color-stop(0, rgb(18,170,214)), color-stop(1, rgb(63,146,170)) );
+	background-image: -moz-linear-gradient( right, rgb(18,170,214) 0%, rgb(63,146,170) 100%);
+	background-image: -webkit-linear-gradient( right, rgb(18,170,214) 0%, rgb(63,146,170) 100%);
+	background-image: -ms-linear-gradient( right, rgb(18,170,214) 0%, rgb(63,146,170) 100%);
+	background-image: linear-gradient(to left, rgb(18,170,214) 0%, rgb(63,146,170) 100%);
+	background-image: -o-linear-gradient(right, rgb(18,170,214) 0%, rgb(63,146,170) 100%);
   font-size: 14px;
   line-height: 20px;
   overflow: auto;
@@ -2588,9 +2597,10 @@ input[type="checkbox"][name="agree"] + label {
   .rd-mobilemenu_ul a {
     display: block;
     padding: 14px 45px 16px 25px;
+	font-weight: 600;
     color: #fff; }
     .rd-mobilemenu_ul a.active {
-      background: rgb(0, 187, 224);
+      background: rgb(130, 192, 0);
       color: #3b3d40; }
     .rd-mobilemenu_ul a:hover {
       background: rgb(0, 187, 224);
@@ -2646,7 +2656,13 @@ input[type="checkbox"][name="agree"] + label {
   left: 0;
   right: 0;
   height: 56px;
-  background: #3b3d40;
+  /*background: #3b3d40;*/
+	background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #002130), color-stop(1, #003649) );
+	background-image: -o-linear-gradient(bottom, #002130 0%, #003649 100%);
+	background-image: -moz-linear-gradient(bottom, #002130 0%, #003649 100%);
+	background-image: -webkit-linear-gradient(bottom, #002130 0%, #003649 100%);
+	background-image: -ms-linear-gradient(bottom, #002130 0%, #003649 100%);
+	background-image: linear-gradient(to top, #002130 0%, #003649 100%);
   color: #fff;
   -webkit-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -4305,6 +4321,7 @@ footer .amberu-contacts {
     font-size: 24px;
     font-weight: 600;
     line-height: 30px;
+	text-align: right;
 }
 footer .amberu-contacts i {
     margin-right: 10px;
@@ -4313,6 +4330,10 @@ footer .amberu-contacts i {
     height: 26px;
     padding-top: 2px;
 	/*vertical-align: top;*/
+}
+footer .amberu-contacts .inner-wrapper {
+	display: inline-block;
+	text-align: left;
 }
 footer .amberu-contacts .amberu-address {
     font-size: 18px;
@@ -4362,6 +4383,14 @@ footer .amberu-contacts  .amberu-address i.fa-map-marker{
 /*========================================================
                     Responsive  Footer
 =========================================================*/
+@media (max-width: 991px) {
+	footer .amberu-contacts, footer .amberu-contacts i {
+		font-size: 18px;
+	}
+	footer .amberu-contacts .amberu-address {
+		font-size: 14px;
+	}
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .common-home footer {
     padding-top: 50px; }
@@ -4385,6 +4414,13 @@ footer .amberu-contacts  .amberu-address i.fa-map-marker{
     width: 50%;
     float: left; } }
 @media (max-width: 767px) {
+  footer .amberu-contacts {
+	  text-align: left;
+	  line-height: 18px;
+  }
+  footer .amberu-contacts .phone {
+	  margin-bottom: 5px;
+  }
   footer .map, footer #google-map {
     height: 250px !important; }
   footer .facebook_box {
