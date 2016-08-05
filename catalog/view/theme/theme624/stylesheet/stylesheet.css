@@ -650,7 +650,7 @@ header {
   header .nav {
     float: left;
     display: inline-block;
-    padding: 20px 0 0; }
+    padding: 10px 0 0; }
   header .search {
     float: right;
     display: inline-block;
@@ -1202,7 +1202,7 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
       display: inline-block; } }
 @media (min-width: 992px) {
   .box-cart .cart > button {
-    padding: 20px 30px 20px 24px; } }
+    padding: 10px 30px 10px 24px; } }
 @media (max-width: 767px) {
   .cart {
     position: fixed;
