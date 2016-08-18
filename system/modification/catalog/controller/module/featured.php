@@ -98,9 +98,9 @@ class ControllerModuleFeatured extends Controller {
 					}
 
 					// amberu price per unit
-					$amberu_final_price = (float)$result['special'] ?
-						(float)$result['special'] : (float)$result['price'];
-					$units_in_product = $result['units_in_product'];
+					$amberu_final_price = (float)$product_info['special'] ?
+						(float)$product_info['special'] : (float)$product_info['price'];
+					$units_in_product = $product_info['units_in_product'];
 					$price_per_unit = $units_in_product > 1 ?
 						$this->currency->format($amberu_final_price / $units_in_product) :
 						$price;
