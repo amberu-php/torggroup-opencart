@@ -29,6 +29,7 @@ class ControllerModuleSpecial extends Controller {
 				$data['reviews'] = $this->language->get('reviews');
 				$data['text_price'] = $this->language->get('text_price');
 				$data['text_product'] = $this->language->get('text_product');
+		$data['text_price_per_unit'] = $this->language->get('text_price_per_unit');
 				
  
 				$data['text_option'] = $this->language->get('text_option');
@@ -96,6 +97,14 @@ class ControllerModuleSpecial extends Controller {
 					$special = false;
 				}
 
+				// amberu price per unit
+				$amberu_final_price = (float)$result['special'] ?
+					(float)$result['special'] : (float)$result['price'];
+				$units_in_product = $result['units_in_product'];
+				$price_per_unit = $units_in_product > 1 ?
+					$this->currency->format($amberu_final_price / $units_in_product) :
+					$price;
+
 				if ($this->config->get('config_tax')) {
 					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
 				} else {
@@ -161,6 +170,11 @@ class ControllerModuleSpecial extends Controller {
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,
+
+					// amberu price per unit
+					'units_in_product' => $units_in_product,
+					'price_per_unit' => $price_per_unit,
+
 					'special'     => $special,
 					'tax'         => $tax,
  

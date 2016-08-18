@@ -30,4 +30,5 @@ $_['heading_title'] = 'Новые поступления';
 			$_['text_new']      = 'новый';
 			
 $_['text_tax']      = 'Без НДС:';
+$_['text_price_per_unit'] = "за шт.";
 

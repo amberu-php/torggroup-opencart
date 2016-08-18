@@ -1299,7 +1299,10 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
   .product-thumb .price {
     float: left;
     display: inline-block;
-    max-width: 85%; }
+    max-width: 83%; }
+  .owl-item .product-thumb .price {
+	  max-width: 80%;
+  }
   .product-thumb .product-btn {
     margin-bottom: 15px; }
   .product-thumb .caption > .product-btn {
@@ -1335,8 +1338,8 @@ html[lang="de"] .cart .cart-remove-btn, html[lang="ru"] .cart .cart-remove-btn {
       /*width: 100%;*/
       padding-left: 10px;
       padding-right: 10px; }
-	.product-grid .product-thumb .cart-button .amberu-compare-btn {
-		width: 100%;
+	.product-grid .product-thumb .cart-button .amberu-compare-btn, .related-products .amberu-compare-btn {
+		display: block;
 		text-align: left;
 	}
   .product-thumb .description, .product-thumb .description-small {
@@ -1438,25 +1441,56 @@ html .sale, html .new_pr {
 /* ===================   Product Price    =================== */
 .price-new, .price-old, .price {
   display: inline-block;
-  font-size: 36px;
-  line-height: 30px;
+  font-size: 30px;
+  line-height: 26px;
   font-weight: 400;
   color: rgb(130, 192, 0); }
+
+.price-new {
+	color: #e62739;
+}
 
 .price-old {
   color: #1a1b1c;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 18px;
   text-decoration: line-through;
   vertical-align: baseline; }
 
+.price-per-unit-container {
+	display: inline-block;
+	font-size: 18px;
+	line-height: 16px;
+	font-weight: 400;
+}
+  
+.price-per-unit-prefix {
+	color: #1a1b1c;
+}
+
+.product-info .price-per-unit-container {
+	display: block;
+	font-size: 20px;
+	line-height: 18px;
+	margin-top: 8px;
+}
+
+.price-per-unit, .price-per-unit-new {
+	display: inline-block;
+	color: rgb(130, 192, 0);
+}
+
+.price-per-unit-new {
+	color: #e62739;
+}
+  
 .price-section {
   margin-top: 20px; }
   .price-section .price-new, .price-section .price-section .price-old {
     font-size: 36px;
     line-height: 30px;
 	font-weight: 400;
-    color: rgb(130, 192, 0); }
+    color: #e62739; }
   .price-section .price-old {
     color: #1a1b1c;
     font-size: 20px;
@@ -1664,7 +1698,7 @@ table .price, table .price-new {
   .product-thumb .caption {
     padding: 0 15px 15px; }
   .product-thumb .product-btn i {
-    display: none; }
+    /*display: none;*/ }
 
   .product-thumb .caption > .product-btn {
     margin: 0; }
@@ -1749,7 +1783,7 @@ table .price, table .price-new {
   .related-products .product-thumb .product-btn {
     text-align: left; }
     .related-products .product-thumb .product-btn i {
-      display: none; } }
+      /*display: none;*/ } }
 /*========================================================
                          Box
 =========================================================*/
@@ -1804,7 +1838,7 @@ aside .box .product-layout {
     margin-bottom: 32px; }
 
   aside .box .box-heading h3 {
-    font-size: 22px;
+    font-size: 19px;
     line-height: 26px; } }
 @media (max-width: 767px) {
   .box .box-heading h3 {
@@ -4520,7 +4554,12 @@ footer .amberu-contacts  .amberu-address i.fa-map-marker{
   .price-old {
     font-size: 14px;
     line-height: 16px; }
-
+	
+	.price-per-unit-container {
+		font-size: 14px;
+		line-height: 16px;
+	}
+	
   .parallax > div .counters-block {
     margin-bottom: 20px; }
   .parallax > div h5 {

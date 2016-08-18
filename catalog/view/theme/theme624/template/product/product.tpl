@@ -158,6 +158,13 @@
 								else { ?>
                                     <span class="price"><span class="price-new"><?php echo $special; ?></span> <span class="price-old"><?php echo $price; ?></span></span>
                                 <?php } ?>
+                                <!-- amberu price per unit -->
+                                <?php if ($units_in_product > 1) { ?>
+                                    <div class="price-per-unit-container">
+                                        <span class="price-per-unit-prefix"><?php echo $text_price_per_unit; ?></span>
+                                        <span class=" <?php echo $special ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $price_per_unit; ?></span>
+                                    </div>
+                                <?php } ?>
                                 <?php if ($tax) { ?>
                                     <span class="tax"><?php echo $text_tax; ?> <?php echo $tax; ?></span>
                                 <?php } ?>
@@ -926,24 +933,36 @@
                                     <div class="description-small"><?php echo mb_substr($product['description'],0,42,'UTF-8').'...'; ?></div>
 
 									<?php if ($product['price']) { ?>
-                                        <p class="price">
+                                        <div class="price">
                                             <?php if (!$product['special']) { ?>
                                                 <?php echo $product['price']; ?>
                                             <?php } else { ?>
                                                 <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
                                             <?php } ?>
+                                            <!-- amberu price per unit -->
+                                            <?php if ($product['units_in_product'] > 1) { ?>
+                                                <div class="price-per-unit-container">
+                                                    <span class="price-per-unit-prefix"><?php echo $text_price_per_unit; ?></span>
+                                                    <span class=" <?php echo $product['special'] ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $product['price_per_unit']; ?></span>
+                                                </div>
+                                            <?php } ?>
                                             <?php if ($product['tax']) { ?>
                                                 <span
                                                     class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
                                             <?php } ?>
-                                        </p>
+                                        </div>
                                     <?php } ?>
 									
 									<button class="product-btn" type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart-o"></i></button>
 									
 									 <div class="cart-button">
-										<button class="product-btn" type="button" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="material-design-shuffle24"></i><span><?php echo $button_compare; ?></span></button>
-										<button class="product-btn-add" type="button" onclick="ajaxAdd($(this),<?php echo $product[ 'product_id'] ?>);"><?php echo $button_cart; ?></button>
+                                         <button class="product-btn  amberu-compare-btn" type="button" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="material-design-shuffle24"></i><span><?php echo $button_compare; ?></span></button>
+                                         <div class="amberu-counter-container">
+                                             <a class="counter counter-minus material-design-horizontal39" href='#'></a>
+                                             <input type="text" name="quantity-counter" value="1" size="1" class="form-control cart-q" id="cart-q"/>
+                                             <a class="counter counter-plus material-design-add186" href='#'></a>
+                                         </div>
+                                         <button class="product-btn-add" type="button" onclick="ajaxAdd($(this),<?php echo $product[ 'product_id'] ?>);"><?php echo $button_cart; ?></button>
 									</div>									
                                 </div>  
                             </div>

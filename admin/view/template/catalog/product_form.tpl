@@ -181,6 +181,12 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-units-in-product"><span data-toggle="tooltip" title="<?php echo $help_units_in_product; ?>"><?php echo $entry_units_in_product; ?></span></label>
+                <div class="col-sm-10">
+                  <input type="text" name="units_in_product" value="<?php echo $units_in_product; ?>" placeholder="<?php echo $units_in_product; ?>" id="input-units-in-product" class="form-control" />
+                </div>
+              </div>
+              <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-minimum"><span data-toggle="tooltip" title="<?php echo $help_minimum; ?>"><?php echo $entry_minimum; ?></span></label>
                 <div class="col-sm-10">
                   <input type="text" name="minimum" value="<?php echo $minimum; ?>" placeholder="<?php echo $entry_minimum; ?>" id="input-minimum" class="form-control" />

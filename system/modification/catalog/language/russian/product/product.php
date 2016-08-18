@@ -66,6 +66,7 @@ $_['text_month']                              = 'месяц';
 
 $_['text_year']                               = 'год';
 
+$_['text_price_per_unit'] = "за шт.";
 
 
 // Entry

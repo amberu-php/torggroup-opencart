@@ -297,6 +297,13 @@
 														class="price-new"><?php echo $product['special']; ?></span>
 													<span class="price-old"><?php echo $product['price']; ?></span>
 												<?php } ?>
+                                                <!-- amberu price per unit -->
+                                                <?php if ($product['units_in_product'] > 1) { ?>
+                                                    <div class="price-per-unit-container">
+                                                        <span class="price-per-unit-prefix"><?php echo $text_price_per_unit; ?></span>
+                                                        <span class=" <?php echo $product['special'] ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $product['price_per_unit']; ?></span>
+                                                    </div>
+                                                <?php } ?>
 												<?php if ($product['tax']) { ?>
 													<span
 														class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
@@ -368,6 +375,13 @@
 								<?php } else { ?>
 									<span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
 								<?php } ?>
+                                <!-- amberu price per unit -->
+                                <?php if ($product['units_in_product'] > 1) { ?>
+                                    <div class="price-per-unit-container">
+                                        <span class="price-per-unit-prefix"><?php echo $text_price_per_unit; ?></span>
+                                        <span class=" <?php echo $product['special'] ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $product['price_per_unit']; ?></span>
+                                    </div>
+                                <?php } ?>
 								<?php if ($product['tax']) { ?>
 									<span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
 								<?php } ?>

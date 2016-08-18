@@ -556,6 +556,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['entry_shipping'] = $this->language->get('entry_shipping');
 		$data['entry_date_available'] = $this->language->get('entry_date_available');
 		$data['entry_quantity'] = $this->language->get('entry_quantity');
+		$data['entry_units_in_product'] = $this->language->get('entry_units_in_product');
 		$data['entry_stock_status'] = $this->language->get('entry_stock_status');
 		$data['entry_price'] = $this->language->get('entry_price');
 		$data['entry_tax_class'] = $this->language->get('entry_tax_class');
@@ -599,6 +600,7 @@ class ControllerCatalogProduct extends Controller {
 		$data['help_jan'] = $this->language->get('help_jan');
 		$data['help_isbn'] = $this->language->get('help_isbn');
 		$data['help_mpn'] = $this->language->get('help_mpn');
+		$data['help_units_in_product'] = $this->language->get('help_units_in_product');
 		$data['help_minimum'] = $this->language->get('help_minimum');
 		$data['help_manufacturer'] = $this->language->get('help_manufacturer');
 		$data['help_stock_status'] = $this->language->get('help_stock_status');
@@ -899,6 +901,14 @@ class ControllerCatalogProduct extends Controller {
 			$data['quantity'] = $product_info['quantity'];
 		} else {
 			$data['quantity'] = 1;
+		}
+
+		if (isset($this->request->post['units_in_product'])) {
+			$data['units_in_product'] = $this->request->post['units_in_product'];
+		} elseif (!empty($product_info)) {
+			$data['units_in_product'] = $product_info['units_in_product'];
+		} else {
+			$data['units_in_product'] = 1;
 		}
 
 		if (isset($this->request->post['minimum'])) {
