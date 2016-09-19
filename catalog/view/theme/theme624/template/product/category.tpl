@@ -395,11 +395,6 @@
 				
 				<?php if ($product['price']) { ?>
                     <div class="price price-product">
-                        <?php if (!$product['special']) { ?>
-                            <?php echo $product['price']; ?>
-                        <?php } else { ?>
-                            <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                        <?php } ?>
                         <!-- amberu price per unit -->
                         <?php if ($product['units_in_product'] > 1) { ?>
                             <div class="price-per-unit-container">
@@ -407,6 +402,13 @@
                                 <span class=" <?php echo $product['special'] ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $product['price_per_unit']; ?></span>
                             </div>
                         <?php } ?>
+						<div class="price-per-product-container">
+							<?php if (!$product['special']) { ?>
+								<?php echo $product['price']; ?>
+							<?php } else { ?>
+								<span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+							<?php } ?>
+						</div>
                         <?php if ($product['tax']) { ?>
                             <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
                         <?php } ?>
@@ -430,11 +432,6 @@
                 <div class="aside">
 					<?php if ($product['price']) { ?>
 						<div class="price price-product">
-							<?php if (!$product['special']) { ?>
-								<?php echo $product['price']; ?>
-							<?php } else { ?>
-								<span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-							<?php } ?>
                             <!-- amberu price per unit -->
                             <?php if ($product['units_in_product'] > 1) { ?>
                                 <div class="price-per-unit-container">
@@ -442,6 +439,13 @@
                                     <span class=" <?php echo $product['special'] ? "price-per-unit-new" : "price-per-unit" ?>"> <?php echo $product['price_per_unit']; ?></span>
                                 </div>
                             <?php } ?>
+							<div class="price-per-product-container">
+								<?php if (!$product['special']) { ?>
+									<?php echo $product['price']; ?>
+								<?php } else { ?>
+									<span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+								<?php } ?>
+							</div>
 							<?php if ($product['tax']) { ?>
 								<span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
 							<?php } ?>
