@@ -1,0 +1,1 @@
+ALTER TABLE oc_product ADD COLUMN units_in_product SMALLINT(6) DEFAULT 1 NOT NULL AFTER quantity;
