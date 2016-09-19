@@ -1460,11 +1460,13 @@ html .sale, html .new_pr {
 .price-per-unit-container {
 	display: block;
 	font-weight: 400;
+	white-space: nowrap;
+	font-size: 26px;
 }
   
 .price-per-unit-prefix {
 	color: #1a1b1c;
-	font-size: 22px;
+	font-size: 19px;
 }
 
 .product-info .price-per-unit-container {
