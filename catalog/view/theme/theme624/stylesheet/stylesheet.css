@@ -1441,7 +1441,7 @@ html .sale, html .new_pr {
 /* ===================   Product Price    =================== */
 .price-new, .price-old, .price {
   display: inline-block;
-  font-size: 30px;
+  font-size: 15px;
   line-height: 26px;
   font-weight: 400;
   color: rgb(130, 192, 0); }
@@ -1495,7 +1495,7 @@ html .sale, html .new_pr {
 }
 
 .price-per-product-container, .price-per-product-container .price-new {
-	font-size: 22px;
+	font-size: 15px;
 }
 .price-per-product-container .price-old  {
 	font-size: 18px;
@@ -2394,7 +2394,9 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label {
   position: relative;
-  padding-left: 20px;
+  top: -16px;
+  padding-left: 30px;
+  padding-right: 10px;
   cursor: pointer; }
   input[type="checkbox"] + label:before, input[type="checkbox"] + label:after {
     content: '';
@@ -2404,17 +2406,19 @@ input[type="checkbox"] + label {
     box-sizing: border-box;
     top: 5px;
     left: 0;
-    width: 14px;
-    height: 14px; }
+    width: 40px;
+    height: 40px;
+	}
   input[type="checkbox"] + label:before {
-    background: #e5e5e5;
+    background: #82c600;
     border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0; }
   input[type="checkbox"] + label:after {
     text-align: center;
-    line-height: 14px;
+    line-height: 40px;
+	font-size:30px;
     font-family: "FontAwesome";
     color: #1a1b1c; }
 
