@@ -1,9 +1,11 @@
 .htaccess.txt
 **/config.php
+**/php.ini
+**/*.cache
 crossdomain.xml
 image/
-**/php.ini
 system/cache/
 system/download/
 system/logs/
 system/upload/
+vqmod/vqcache
