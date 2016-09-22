@@ -2,6 +2,8 @@
 **/config.php
 **/php.ini
 **/*.cache
+**/logs
+**/log
 crossdomain.xml
 image/
 system/cache/
