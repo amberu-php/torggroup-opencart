@@ -43,6 +43,12 @@
       </div>
     </div>
     <div class="form-group required">
+      <label class="col-sm-2 control-label" for="input-shipping-city"><?php echo $entry_city; ?></label>
+      <div class="col-sm-10">
+        <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" class="form-control" />
+      </div>
+    </div>
+    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-address-1"><?php echo $entry_address_1; ?></label>
       <div class="col-sm-10">
         <input type="text" name="address_1" value="" placeholder="<?php echo $entry_address_1; ?>" id="input-shipping-address-1" class="form-control" />
@@ -55,37 +61,9 @@
       </div>
     </div>
     <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-shipping-city"><?php echo $entry_city; ?></label>
-      <div class="col-sm-10">
-        <input type="text" name="city" value="" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" class="form-control" />
-      </div>
-    </div>
-    <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-postcode"><?php echo $entry_postcode; ?></label>
       <div class="col-sm-10">
         <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-shipping-postcode" class="form-control" />
-      </div>
-    </div>
-    <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-shipping-country"><?php echo $entry_country; ?></label>
-      <div class="col-sm-10">
-        <select name="country_id" id="input-shipping-country" class="form-control">
-          <option value=""><?php echo $text_select; ?></option>
-          <?php foreach ($countries as $country) { ?>
-          <?php if ($country['country_id'] == $country_id) { ?>
-          <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
-          <?php } else { ?>
-          <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
-          <?php } ?>
-          <?php } ?>
-        </select>
-      </div>
-    </div>
-    <div class="form-group required">
-      <label class="col-sm-2 control-label" for="input-shipping-zone"><?php echo $entry_zone; ?></label>
-      <div class="col-sm-10">
-        <select name="zone_id" id="input-shipping-zone" class="form-control">
-        </select>
       </div>
     </div>
     <?php foreach ($custom_fields as $custom_field) { ?>
