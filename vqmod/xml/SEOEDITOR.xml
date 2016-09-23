@@ -16,7 +16,7 @@
 	<vqmver>2.1.5</vqmver>
 	<author>ovife21</author>
 	
-	<file name="admin/view/template/common/header.tpl">
+	<file name="xxxwater16/view/template/common/header.tpl">
 		<operation>
 			<search position="after"><![CDATA[<script type="text/javascript" src="view/javascript/jquery/jquery]]></search>
 			<add><![CDATA[<script type="text/javascript" src="view/javascript/tableedit.js"></script>]]></add>

@@ -34,7 +34,7 @@
 			<add><![CDATA[setTitle($information_info['meta_title']?$information_info['meta_title']:$information_info['title'])]]></add>
 		</operation>				
 	</file>
-	<file name="admin/view/template/catalog/seopack.tpl">
+	<file name="xxxwater16/view/template/catalog/seopack.tpl">
 		<operation>
 			<search position="before"><![CDATA[<p><a onclick="clearseo('Products Tags', '<?php echo $cleartags; ?>');" class="button" style="background:red">Clear Tags</a></p>]]></search>
 			<add><![CDATA[<p><a onclick="clearseo('Product Custom Titles', '<?php echo $cleartitles; ?>');" class="button" style="background:red">Clear Custom Titles</a></p>]]></add>
@@ -63,7 +63,7 @@
               <tr>]]></add>
 		</operation>		
 	</file>	
-	<file name="admin/controller/catalog/seopack.php">
+	<file name="xxxwater16/controller/catalog/seopack.php">
 		<operation>
 			<search position="before"><![CDATA[public function cleartags() {]]></search>
 			<add><![CDATA[public function cleartitles() {
@@ -81,7 +81,7 @@
 			<add><![CDATA[$data['cleartitles'] = $this->url->link('catalog/seopack/cleartitles', 'token=' . $this->session->data['token'], 'SSL');]]></add>
 		</operation>		
 	</file>	
-	<file name="admin/controller/catalog/seoedit.php">
+	<file name="xxxwater16/controller/catalog/seoedit.php">
 		<operation>
 			<search position="before"><![CDATA[$meta_keyword = $this->db->escape($_POST['meta_keyword']);]]></search>
 			<add><![CDATA[$meta_title = $this->db->escape($_POST['meta_title']);]]></add>
@@ -99,7 +99,7 @@
 			<add><![CDATA[$query = $this->db->query("update " . DB_PREFIX . "information_description set meta_title = '$meta_title' where information_id = $id and language_id = $language_id;");]]></add>
 		</operation>		
 	</file>
-	<file name="admin/view/template/catalog/seoeditor.tpl">
+	<file name="xxxwater16/view/template/catalog/seoeditor.tpl">
 		<operation>
 			<search position="before"><![CDATA[<td class="left"  style="width:220px;"><?php if ($sort == 'meta_keyword') { ?>]]></search>
 			<add><![CDATA[
@@ -141,7 +141,7 @@
 			}]]></add>
 		</operation>					
 	</file>
-	<file name="admin/model/catalog/seoeditor.php">
+	<file name="xxxwater16/model/catalog/seoeditor.php">
 		<operation>
 			<search position="before" index="1,5"><![CDATA[if (!empty($data['filter_meta_keyword'])) {]]></search>
 			<add><![CDATA[if (!empty($data['filter_meta_title'])) {
@@ -176,7 +176,7 @@
 				$sql .= " AND 1=2";]]></add>
 		</operation>		
 	</file>	
-	<file name="admin/controller/catalog/seoeditor.php">
+	<file name="xxxwater16/controller/catalog/seoeditor.php">
 		<operation>
 			<search position="before" index="1,4"><![CDATA[if (isset($this->request->get['filter_meta_keyword'])) {]]></search>
 			<add><![CDATA[

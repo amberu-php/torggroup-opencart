@@ -16,13 +16,13 @@
 	<vqmver>2.1.5</vqmver>
 	<author>ovife21</author>
 	
-	<file name="admin/language/*/catalog/product.php">
+	<file name="xxxwater16/language/*/catalog/product.php">
 		<operation>
 			<search position="before"><![CDATA[$_['entry_name']]]></search>
 			<add><![CDATA[$_['entry_custom_imgtitle']            = 'Custom Image Title Tag';]]></add>
 		</operation>			
 	</file>		
-	<file name="admin/view/template/catalog/product_form.tpl">
+	<file name="xxxwater16/view/template/catalog/product_form.tpl">
 		<operation>
 			<search position="before" index="1"><![CDATA[<?php echo $entry_meta_description; ?>]]></search>
 			 <add><![CDATA[<label class="col-sm-2 control-label" for="input-custom-imgtitle<?php echo $language['language_id']; ?>"><span data-toggle="tooltip" title="Leave empty if you want the default image title tag to be displayed"><?php echo $entry_custom_imgtitle; ?></span></label>
@@ -40,7 +40,7 @@
 			<add><![CDATA[$query->row['meta_keyword'], 'custom_imgtitle' => $query->row['custom_imgtitle'],]]></add>
 		</operation>							
 	</file>		
-	<file name="admin/model/catalog/product.php">
+	<file name="xxxwater16/model/catalog/product.php">
 		<operation>
 			<search position="replace"><![CDATA['meta_description' => $result['meta_description']]]></search>
 			<add><![CDATA['custom_imgtitle' => $result['custom_imgtitle'], 'meta_description' => $result['meta_description']]]></add>
@@ -50,7 +50,7 @@
 			<add><![CDATA[custom_imgtitle = '" . ((isset($value['custom_imgtitle']))?($this->db->escape($value['custom_imgtitle'])):'') . "', meta_description = '" . $this->db->escape($value['meta_description']) . "',]]></add>
 		</operation>			
 	</file>
-	<file name="admin/controller/catalog/product.php">
+	<file name="xxxwater16/controller/catalog/product.php">
 		<operation>
 			<search position="before"><![CDATA[$data['entry_meta_description'] = $this->language->get('entry_meta_description');]]></search>
 			<add><![CDATA[$data['entry_custom_imgtitle'] = $this->language->get('entry_custom_imgtitle');]]></add>
@@ -69,7 +69,7 @@
 			<add><![CDATA[title="<?php echo $custom_imgtitle; ?>"]]></add>
 		</operation>		
 	</file>	
-	<file name="admin/view/template/catalog/seopack.tpl">
+	<file name="xxxwater16/view/template/catalog/seopack.tpl">
 		<operation>
 			<search position="before"><![CDATA[<p><a onclick="clearseo('Products Tags', '<?php echo $cleartags; ?>');" class="button" style="background:red">Clear Tags</a></p>]]></search>
 			<add><![CDATA[<p><a onclick="clearseo('Custom Image Titles', '<?php echo $clearimgtitles; ?>');" class="button" style="background:red">Clear Custom Image Titles</a></p>]]></add>
@@ -98,7 +98,7 @@
               <tr>]]></add>
 		</operation>		
 	</file>	
-	<file name="admin/controller/catalog/seopack.php">
+	<file name="xxxwater16/controller/catalog/seopack.php">
 		<operation>
 			<search position="before"><![CDATA[public function cleartags() {]]></search>
 			<add><![CDATA[public function clearimgtitles() {
@@ -118,7 +118,7 @@
 			]]></add>
 		</operation>
 	</file>	
-	<file name="admin/controller/common/header.php">
+	<file name="xxxwater16/controller/common/header.php">
 		<operation>
 			<search position="before"><![CDATA[$data['heading_title']]]></search>
 			<add><![CDATA[

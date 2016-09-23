@@ -15,7 +15,7 @@
 	<version>1.0.0</version>
 	<vqmver>2.1.5</vqmver>
 	<author>ovife21</author>
-	<file name="admin/controller/catalog/manufacturer.php">
+	<file name="xxxwater16/controller/catalog/manufacturer.php">
 		<operation>
 			<search position="after"><![CDATA[$data['token'] = $this->session->data['token'];]]></search>
 			<add><![CDATA[
@@ -49,7 +49,7 @@
 			]]></add>
 		</operation>
 	</file>
-	<file name="admin/model/catalog/manufacturer.php">
+	<file name="xxxwater16/model/catalog/manufacturer.php">
 		<operation>
 			<search position="after" index="2"><![CDATA[$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'manufacturer_id=" . (int)$manufacturer_id . "'");]]></search>
 			<add><![CDATA[
@@ -112,7 +112,7 @@
 			]]></add>
 		</operation>
 	</file>
-	<file name="admin/view/template/catalog/manufacturer_form.tpl">
+	<file name="xxxwater16/view/template/catalog/manufacturer_form.tpl">
 		<operation>
 			<search position="after"><![CDATA[<?php echo $action; ?>]]></search>
 			<add><![CDATA[

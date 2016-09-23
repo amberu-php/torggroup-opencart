@@ -17,7 +17,7 @@
 	<author>ovife21</author>
 	
 		
-	<file name="admin/language/*/common/menu.php">
+	<file name="xxxwater16/language/*/common/menu.php">
 		<operation>
 			<search position="before"><![CDATA[$_['text_product']]]></search>
 			<add><![CDATA[
@@ -39,7 +39,7 @@
 		</operation>		
 	</file>	
 	
-	<file name="admin/view/template/common/menu.tpl">
+	<file name="xxxwater16/view/template/common/menu.tpl">
 		<operation>
 			<search position="after"><![CDATA[<li><a href="<?php echo $product; ?>"><?php echo $text_product; ?></a></li>]]></search>
 			<add><![CDATA[<li><a class="parent">SEO</a>
@@ -123,7 +123,7 @@
 		</operation>		
 	</file>	
 	
-	<file name="admin/controller/common/menu.php">
+	<file name="xxxwater16/controller/common/menu.php">
 		<operation>
 			<search position="after"><![CDATA[$data['text_product']]]></search>
 			<add><![CDATA[
