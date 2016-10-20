@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Clean Blog - Opencart Blog System</title>
+<style>
+body {
+	background:#f1f1f1;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#222222;
+	font-size:14px;
+}
+h1 {
+	font-size:38px;
+	font-weight:normal;
+}
+h2 {
+	font-size:26px;
+	margin-bottom:20px;
+	margin-top:30px;
+	
+}
+.sub-title {
+	font-size:16px;
+	display:block;
+	margin-top:30px;
+	margin-bottom:10px;
+}
+.wrapper {
+	position:relative;
+	width:1020px;
+	padding:40px;
+	margin:50px auto;
+	background:#ffffff;
+}
+.release {
+	font-size:13px;
+	padding:5px 15px;
+	background:#f5f5f5;
+	display:block;
+}
+.release i {
+	color:#666666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+<h1>Clean Blog - Opencart Blog System</h1>
+<p>Compatible Versions: <b>2.X</b></p>
+
+<div class="release">
+<p>
+<b>Release History:</b><br />
+
+Version 2.4 - 2016-08-07<br />
+<i>
+- Fixed a bug with Internet Explorer
+- Added support for Opencart 2.3
+</i><br />
+</p>
+<p>
+
+Version 2.3 - 2016-04-03<br />
+<i>- Fixed a bug with related products on opencart 2.2</i><br />
+</p>
+<p>
+
+Version 2.2 - 2016-03-10<br />
+<i>- Added support for Opencart 2.2.X</i><br />
+</p>
+<p>
+
+Version 2.1 - 2016-02-01<br />
+<i>- Fixed a bug with the home page pagination<br />
+catalog/controller/blog/home.php</i></p>
+<p>
+
+Version 2.0 - 2016-01-20<br />
+<i>- Added related products on blog posts<br />
+- Fixed Layout override on blog categories/posts<br />
+- Changed from using VQMOD to the built in OCMOD</i></p>
+<p>
+
+
+<p>Version 1.2 - 2015-04-10<br />
+<i>
+- Fixed a bug when disable/enable blog comments<br />
+- Added support for 2.0.2
+</i>
+</p>
+<p>
+Version 1.1 - 2015-03-10<br />
+<i>- Added option to show blog thumb on blog post pages.</i>
+</p>
+Version 1.0 - 2015-02-02<br />
+<i>- Initial release</i>
+</div>
+
+
+<h2>How to install</h2>
+
+<p><i>Please follow all steps carefully</i></p>
+<p><b class="sub-title">Step 1: Upload the files</b>Upload the folders from the folder Files-To-Upload/ to the root of your store installation. The structure of the folders is the same as in opencart. No files will be overwritten.</p>
+
+<p><b class="sub-title">Step 2: Import <i>clean_blog.ocmod.xml</i></b>Log in to your admin panel, and go to <i>Extensions > Extension Installer.</i><br />
+<br />
+Click on browse, and select the file <i>clean_blog.ocmod.xml</i>. You should should get the following message:<br />
+<br />
+<span style="color:#090">Success: You have installed your extension!</span> </p>
+
+<p><b class="sub-title">Step 3: Refresh Modification Cache</b>Go to <i>Extensions > Modifications</i>. Hit the blue button at top right that says "Refresh".<br /><br />You should now see the Blog added to your admin menu</p>
+
+<p><b class="sub-title">Step 4: Set Permissions</b>Go to <i>System > Users > User Group</i>. Edit the Administrator account, and make sure all blog areas are checked</p>
+
+<p><b class="sub-title">Step 5: Enable Blog</b>Go to <i>Blog > Blog Setting</i>. You should now get a message that the blog was installed. Fill in your preferred settings, and hit the Save button</p>
+
+<p>The blog is now installed, and you can start by creating your first blog post. <br /><br /></p>
+
+<p>The URL to the blog is by default: <i>yourstore.com/index.php?route=blog/home</i></p>
+
+
+<br />
+<br />
+
+<h2>Additional information</h2>
+<p>- When you install the blog, a new layout is created called Blog (Design > Layouts)</p>
+<p>- The blog extension comes with two custom modules for showing Blog categories and Latest blog posts. You find both these under Extensions > Modules in your admin panel.</p>
+<p>- For support questions: <b>openthemer@gmail.com</b> – Please don’t post support questions among the comments on opencart.com</p>
+<p>- If you think the extension is well worth the money, don't forget to rate it! :)</p>
+
+<br />
+<br />
+
+<h2>Upgrading the blog extension</h2>
+<p>To upgrade the blog extension from version 1.X to 2.0, please follow the following steps:</p>
+<p>1. Go to Blog > Blog settings, and save the content for Home title, Home page title, and Home description. This area is changed in 2.0, and you need to fill those fields again after upgrading.</p>
+<p>2. Delete the file vqmod/xml/vqmod_blog.xml</p>
+<p>3. Follow the default installation guide above. Replace your current files when uploading files in step 1. When you visit Blog > Blog Settings, you should see a success message about upgrade instead of about installation</p>
+<br />
+<br />
+
+<h2>Troubleshooting</h2>
+<p><b>After clicking the Refresh button, I get a error message like:</b><br />
+<i>PHP Warning: fwrite() expects parameter 1 to be resource, boolean given in /../admin/controller/extension/modification.php on line 392</i></p>
+<p>- This means the writing permissions is not correct. Please log in to your server, and set writing permission as 777 for the folder: system/modification</p>
+<br />
+
+
+
+
+</div>
+</body>
+</html>
