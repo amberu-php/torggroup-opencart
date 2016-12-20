@@ -110,7 +110,7 @@
 				<?php } ?>
 			</div>
             <!-- TODO replace hardcoded numbers to admin settings handle of comma separated numbers in input -->
-            <?php $telephone = array(); $telephone[0] = "+38 068 800 93 70"; $telephone[1] = "+38‎ 050 669 85 15"; ?>
+            <?php $telephone = array(); $telephone[0] = "+38 050 669 85 15"; $telephone[1] = "+38‎ 098 981 88 49"; ?>
             <div class="phone">
                 <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></div>
                 <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></div>
