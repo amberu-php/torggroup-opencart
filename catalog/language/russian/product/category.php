@@ -22,4 +22,5 @@ $_['text_rating_desc']  = 'Рейтинг (начиная с высокого)';
 $_['text_model_asc']    = 'Модель (А - Я)';
 $_['text_model_desc']   = 'Модель (Я - А)';
 $_['text_limit']        = 'На странице:';
+$_['text_price_per_unit'] = "за шт.";
 

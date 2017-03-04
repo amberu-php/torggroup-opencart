@@ -292,7 +292,7 @@ class ControllerProductCategory extends Controller {
 					// amberu price per unit
 					'units_in_product' => $units_in_product,
 					'price_per_unit' => $price_per_unit,
-
+					
 					'special'     => $special,
   'last_array' => $last_array,  'limit_last' => $lim_last, 
 					'tax'         => $tax,
