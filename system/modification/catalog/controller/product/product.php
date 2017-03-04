@@ -456,6 +456,14 @@ class ControllerProductProduct extends Controller {
 					$rating = false;
 				}
 
+				// amberu price per unit
+				$amberu_final_price = (float)$result['special'] ?
+					(float)$result['special'] : (float)$result['price'];
+				$units_in_product = $result['units_in_product'];
+				$price_per_unit = $units_in_product > 1 ?
+					$this->currency->format($amberu_final_price / $units_in_product) :
+					$price;
+
 
 					   $options = array();
                     foreach ($this->model_catalog_product->getProductOptions($result['product_id']) as $option) {
@@ -487,15 +495,7 @@ class ControllerProductProduct extends Controller {
                             'required'             => $option['required']
                         );
                     }
-
-				// amberu price per unit
-				$amberu_final_price = (float)$result['special'] ?
-					(float)$result['special'] : (float)$result['price'];
-				$units_in_product = $result['units_in_product'];
-				$price_per_unit = $units_in_product > 1 ?
-					$this->currency->format($amberu_final_price / $units_in_product) :
-					$price;
-
+				
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,

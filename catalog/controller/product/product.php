@@ -242,6 +242,7 @@ class ControllerProductProduct extends Controller {
 			$data['text_tags'] = $this->language->get('text_tags');
 			$data['text_related'] = $this->language->get('text_related');
 			$data['text_loading'] = $this->language->get('text_loading');
+			$data['text_price_per_unit'] = $this->language->get('text_price_per_unit');
 
 			$data['entry_qty'] = $this->language->get('entry_qty');
 			$data['entry_name'] = $this->language->get('entry_name');
@@ -313,6 +314,13 @@ class ControllerProductProduct extends Controller {
 			} else {
 				$data['special'] = false;
 			}
+
+			// amberu price per unit
+			$amberu_final_price = (float)$product_info['special'] ? (float)$product_info['special'] : (float)$product_info['price'];
+			$data['units_in_product'] = $product_info['units_in_product'];
+			$data['price_per_unit'] = $product_info['units_in_product'] > 1 ?
+				$this->currency->format($amberu_final_price / $product_info['units_in_product']) :
+				$data['price'];
 
 			if ($this->config->get('config_tax')) {
 				$data['tax'] = $this->currency->format((float)$product_info['special'] ? $product_info['special'] : $product_info['price']);
@@ -426,12 +434,25 @@ class ControllerProductProduct extends Controller {
 					$rating = false;
 				}
 
+				// amberu price per unit
+				$amberu_final_price = (float)$result['special'] ?
+					(float)$result['special'] : (float)$result['price'];
+				$units_in_product = $result['units_in_product'];
+				$price_per_unit = $units_in_product > 1 ?
+					$this->currency->format($amberu_final_price / $units_in_product) :
+					$price;
+
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,
+
+					// amberu price per unit
+					'units_in_product' => $units_in_product,
+					'price_per_unit' => $price_per_unit,
+
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
