@@ -29,12 +29,12 @@ class ControllerModuleFeatured extends Controller {
 				$data['reviews'] = $this->language->get('reviews');
 				$data['text_price'] = $this->language->get('text_price');
 				$data['text_product'] = $this->language->get('text_product');
-		$data['text_price_per_unit'] = $this->language->get('text_price_per_unit');
 				
  
 				$data['text_option'] = $this->language->get('text_option');
 				$data['text_select'] = $this->language->get('text_select');
 				
+		$data['text_price_per_unit'] = $this->language->get('text_price_per_unit');
 		$data['button_wishlist'] = $this->language->get('button_wishlist');
 		$data['button_compare'] = $this->language->get('button_compare');
 
@@ -174,7 +174,7 @@ class ControllerModuleFeatured extends Controller {
 						// amberu price per unit
 						'units_in_product' => $units_in_product,
 						'price_per_unit' => $price_per_unit,
-
+						
                         'special'     => $special,
                         'tax'         => $tax,
  
