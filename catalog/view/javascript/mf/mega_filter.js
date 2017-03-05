@@ -3105,9 +3105,6 @@ MegaFilter.prototype = {
 		} else {
 			self.reload();
 		}
-		//amberu
-		amberuCommon.megaFilter.refreshAfterAjax();
-		//amberu end
 	},
 	
 	_render: function( html, json, history ) {
@@ -3225,6 +3222,10 @@ MegaFilter.prototype = {
 		}
 		
 		self.afterRender( self._lastResponse, html, json );
+
+		//amberu
+		amberuCommon.megaFilter.refreshAfterAjax();
+		//amberu end
 	},
 	
 	beforeRequest: function(){},
