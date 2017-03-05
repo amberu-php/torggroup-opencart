@@ -1,15 +1,4 @@
-// amberu
-var amberuCommon = {
-	cart: {
-		getInputQuantityVal: function(el) {
-			return el.parent().find("#cart-q").first().val();
-		},
-		add: function(el, id) {
-			el = $(el);
-			cart.add(id, this.getInputQuantityVal(el));
-		},
-	}
-}
+
 
 function getURLVar(key) {
     var value = [];
@@ -154,11 +143,8 @@ $(document).ready(function () {
         }
     });
 
-    $('.ajax-overlay_close').on('click touchstart', function (e) {
-        e.preventDefault();
-        $('.ajax-overlay').removeClass('visible');
-        returnOptions();
-    })
+    // overlay listener
+    amberuCommon.overlay.init();
 
     $(document).on('click touchstart', function (e) {
         var container = $(".product-option-wrap");

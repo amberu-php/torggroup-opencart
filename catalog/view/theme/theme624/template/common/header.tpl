@@ -40,6 +40,7 @@
         <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>"
               media="<?php echo $style['media']; ?>"/>
     <?php } ?>
+    <script src="catalog/view/javascript/amberu-common.js" type="text/javascript"></script>
     <script src="catalog/view/theme/<?php echo $theme_path; ?>/js/common.js" type="text/javascript"></script>
     <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
 

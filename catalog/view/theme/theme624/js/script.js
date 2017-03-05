@@ -3,6 +3,27 @@ function include(scriptUrl) {
     document.write('<script src="catalog/view/theme/' + gl_path + '/' + scriptUrl + '"></script>');
 }
 
+// =====================================================================================
+// amberu
+// below: some scripts that replaced from html,
+// all that replaced from this script.js file,
+// and helpers for this script
+var amberuTheme624Script = {
+    getChar: function (event) {
+        if (event.which == null) {
+            if (event.keyCode < 32) return null;
+            return String.fromCharCode(event.keyCode) // IE
+        }
+
+        if (event.which != 0 && event.charCode != 0) {
+            if (event.which < 32) return null;
+            return String.fromCharCode(event.which)
+        }
+
+        return null;
+    }
+}
+
 /* Easing library
  ========================================================*/
 include('js/jquery.easing.1.3.js');
@@ -51,31 +72,7 @@ include('js/jquery.easing.1.3.js');
  ========================================================*/
 ;
 (function ($) {
-    var o = $('.lazy img');
-
-    if (o.length > 0) {
-        include('js/jquery.unveil.js');
-
-        $(document).ready(function () {
-            $(o).unveil(0, function () {
-                $(this).load(function () {
-                    $(this).parent().addClass("lazy-loaded");
-                })
-            });
-        });
-
-        $(window).load(function () {
-            $(window).trigger('lookup.unveil');
-            if ($('.nav-tabs').length) {
-                $('.nav-tabs').find('a[data-toggle="tab"]').click(function () {
-                    setTimeout(function () {
-                        $(window).trigger('lookup.unveil');
-                    }, 400);
-                })
-            }
-        });
-
-    }
+    amberuCommon.unveil.init();
 })(jQuery);
 
 /* Magnificent
@@ -437,37 +434,7 @@ $(window).load(function () {
  ========================================================*/
 ;
 (function ($) {
-    var o = $('.radio');
-
-    if (o.length) {
-        $(window).load(function () {
-            var input;
-            var arrVal = [];
-            o.each(function (i) {
-                input = $(this).find('input[type="radio"]');
-                if ($.inArray(input.attr('name') + input.attr('value'), arrVal) == -1) {
-                    input.attr('id', input.attr('name') + input.attr('value'))
-                    input.insertBefore($(this).find('label').attr('for', input.attr('name') + input.attr('value')));
-                    arrVal.push(input.attr('name') + input.attr('value'))
-                } else {
-                    input.attr('id', input.attr('name') + input.attr('value') + i.toString());
-                    input.insertBefore($(this).find('label').attr('for', input.attr('name') + input.attr('value') + i.toString()));
-                    arrVal.push(input.attr('name') + input.attr('value') + i.toString());
-                }
-            })
-        });
-    }
-    var o2 = $('label.radio-inline');
-    if (o2.length) {
-        $(document).ready(function () {
-            var input;
-            o2.each(function () {
-                input = $(this).find('input[type="radio"]');
-                input.attr('id', input.attr('name') + input.attr('value'))
-                input.insertBefore($(this).attr('for', input.attr('name') + input.attr('value')));
-            })
-        });
-    }
+   amberuCommon.radioReplacer.replace();
 })(jQuery);
 
 function replaceForm() {
@@ -549,46 +516,7 @@ function replaceForm() {
  ========================================================*/
 ;
 (function ($) {
-    var o = $('.checkbox');
-    if (o.length) {
-        $(document).ready(function () {
-            var input;
-            var arrVal = [];
-            o.each(function (i) {
-                input = $(this).find('input[type="checkbox"]');
-                if ($.inArray(input.attr('name') + input.attr('value'), arrVal) == -1) {
-                    input.attr('id', input.attr('name') + input.attr('value'))
-                    input.insertBefore($(this).find('label').attr('for', input.attr('name') + input.attr('value')));
-                    arrVal.push(input.attr('name') + input.attr('value'))
-                } else {
-                    input.attr('id', input.attr('name') + input.attr('value') + input.attr('value') + i.toString())
-                    input.insertBefore($(this).find('label').attr('for', input.attr('name') + input.attr('value') + input.attr('value') + i.toString()));
-                    arrVal.push(input.attr('name') + input.attr('value') + i.toString());
-                }
-            })
-        });
-    }
-
-    var o2 = $('input[name=\'agree\'][type=\'checkbox\']');
-    if (o2.length) {
-        $(document).ready(function () {
-            o2.attr('id', o2.attr('name') + o2.attr('value'));
-            o2.parent().append('<label for="' + o2.attr('name') + o2.attr('value') + '"></label>');
-            $('label[for="' + o2.attr('name') + o2.attr('value') + '"]').insertAfter(o2);
-
-        });
-    }
-
-    var o3 = $('.checkbox-inline');
-    if (o3.length) {
-        var input;
-        o3.each(function (i) {
-            input = $(this).find('input[type="checkbox"]');
-            input.attr('id', input.attr('name') + input.attr('value'))
-            input.insertBefore($(this).attr('for', input.attr('name') + input.attr('value')));
-
-        })
-    }
+    amberuCommon.checkBoxReplacer.replace();
 })(jQuery);
 
 
@@ -596,53 +524,7 @@ function replaceForm() {
  ========================================================*/
 ;
 (function ($) {
-    $('.date').datetimepicker({
-        pickTime: false
-    });
-
-    $('.datetime').datetimepicker({
-        pickDate: true,
-        pickTime: true
-    });
-
-    $('.time').datetimepicker({
-        pickDate: false
-    });
-
-
-    $(document).ready(function () {
-        $('.date,.datetime,.time').each(function () {
-            var $this = $(this);
-            $(this).find('.btn').click(function () {
-                var body = $('body');
-                if (body.hasClass('ajax-overlay-open')) {
-                    var open;
-                    setTimeout(function () {
-                        open = $('body').find('.bootstrap-datetimepicker-widget.picker-open');
-                        if (open.hasClass('top')) {
-                            open.css('bottom', $(window).height() - ($this.offset().top - $('.ajax-overlay').offset().top));
-                        }
-                    }, 10);
-                }
-            })
-
-        })
-    });
-
-    $(document).ready(function () {
-        $('.date, .datetime, .time').on('dp.show', function () {
-            $('.date, .datetime, .time').not($(this)).each(function () {
-                $(this).data("DateTimePicker").hide();
-            });
-        });
-        $(this).on('click touchstart', function () {
-            $('.date, .datetime, .time').each(function () {
-                $(this).data("DateTimePicker").hide();
-            });
-        })
-
-    });
-
+    amberuCommon.dateTimePicker.init();
 })(jQuery);
 
 /* Select Replacement
@@ -680,62 +562,14 @@ function replaceForm() {
  ========================================================*/
 ;
 (function ($) {
-    var o = $('textarea');
-    if (o.length) {
-        $(document).ready(function () {
-            o.removeClass('form-control');
-
-        });
-    }
+    amberuCommon.textAreaReplacer.replace();
 })(jQuery);
 
 /* Quantity Counter
  ========================================================*/
 ;
 (function ($) {
-    var o = $('input[name*="quantity"]');
-    $(document).ready(function () {
-        $('.counter-minus').click(function (e) {
-            e.preventDefault();
-            var input = $(this).parent().find('input[name*="quantity"]').first();
-            var value = input.val();
-			if (value > 1) {
-                value = parseInt(input.val()) - 1;
-                input.val(value);
-            }
-        })
-        $('.counter-plus').click(function (e) {
-            e.preventDefault();
-            var input = $(this).parent().find('input[name*="quantity"]').first();
-            var value = parseInt(input.val()) + 1;
-            input.val(value);
-        })
-
-        // amberu overlay popup counter sync
-        //on counter click
-        $('.amberu-counter-container .counter').click(function () {
-            var $input = $(this).siblings('input[name*="quantity"]');
-            syncCounter($input);
-        });
-        // on input change
-        $('.amberu-counter-container input[name*="quantity"]').on('keyup', function () {
-            syncCounter($(this));
-        });
-        function syncCounter($input) {
-            $input = $input.first();
-            var newValue = $input.val();
-            if (!jQuery.isNumeric( newValue )) {
-                newValue = 1;
-                $input.val(newValue);
-            }
-            if ($input.closest('.product-option-wrap').length) return;
-            var $popUpInput = $input.closest('.product-thumb')
-                .find('.product-option-wrap .amberu-counter-container input[name*="quantity"]')
-                .first();
-            $popUpInput.val(newValue);
-        }
-        // amberu end
-    });
+    amberuCommon.quantityCounter.init();
 })(jQuery);
 
 
@@ -805,22 +639,7 @@ $(window).resize(function () {
     clearTimeout(this.id);
     this.id = setTimeout(respResize, 500);
 });
-// amberu
-var amberuScript = {
-	getChar: function (event) {
-		if (event.which == null) {
-			if (event.keyCode < 32) return null;
-			return String.fromCharCode(event.keyCode) // IE
-		}
 
-		if (event.which != 0 && event.charCode != 0) {
-			if (event.which < 32) return null;
-			return String.fromCharCode(event.which)
-		}
-
-		return null;
-	}
-}
 // moved from checkout/cart.tpl
 $(document).ready(function() {
 	$("input[name='quantity-counter'].cart-q").keypress(function(e) {
@@ -828,7 +647,7 @@ $(document).ready(function() {
 
 		if (e.ctrlKey || e.altKey || e.metaKey) return;
 
-		var chr = amberuScript.getChar(e);
+		var chr = amberuTheme624Script.getChar(e);
 
 		if (chr == null) return;
 
@@ -845,7 +664,7 @@ document.getElementById('cart-q').onkeypress = function (e) {
 
 	if (e.ctrlKey || e.altKey || e.metaKey) return;
 
-	var chr = amberuScript.getChar(e);
+	var chr = amberuTheme624Script.getChar(e);
 
 	if (chr == null) return;
 
