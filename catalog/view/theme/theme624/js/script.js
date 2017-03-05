@@ -710,6 +710,31 @@ function replaceForm() {
             var value = parseInt(input.val()) + 1;
             input.val(value);
         })
+
+        // amberu overlay popup counter sync
+        //on counter click
+        $('.amberu-counter-container .counter').click(function () {
+            var $input = $(this).siblings('input[name*="quantity"]');
+            syncCounter($input);
+        });
+        // on input change
+        $('.amberu-counter-container input[name*="quantity"]').on('keyup', function () {
+            syncCounter($(this));
+        });
+        function syncCounter($input) {
+            $input = $input.first();
+            var newValue = $input.val();
+            if (!jQuery.isNumeric( newValue )) {
+                newValue = 1;
+                $input.val(newValue);
+            }
+            if ($input.closest('.product-option-wrap').length) return;
+            var $popUpInput = $input.closest('.product-thumb')
+                .find('.product-option-wrap .amberu-counter-container input[name*="quantity"]')
+                .first();
+            $popUpInput.val(newValue);
+        }
+        // amberu end
     });
 })(jQuery);
 

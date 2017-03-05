@@ -254,6 +254,11 @@
                                             </div>
                                         <?php } ?>
                                     <?php } ?>
+                                    <div class="amberu-counter-container">
+                                        <a class="counter counter-minus material-design-horizontal39" href='#'></a>
+                                        <input type="text" name="quantity" value="1" size="1" class="form-control cart-q" id="cart-q"/>
+                                        <a class="counter counter-plus material-design-add186" href='#'></a>
+                                    </div>
                                     <button class="product-btn-add" type="button"
                                             onclick="cart.addPopup($(this),'<?php echo $product['product_id']; ?>');">
                                         <span><?php echo $button_cart; ?></span>
