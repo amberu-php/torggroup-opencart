@@ -42,6 +42,11 @@ class ControllerProductSpecial extends Controller {
 
 		$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
 		}
@@ -118,6 +123,11 @@ class ControllerProductSpecial extends Controller {
 			'limit' => $limit
 		);
 
+
+				if( isset( $this->request->get['category_id'] ) ) {
+					$filter_data['filter_category_id'] = (int) $this->request->get['category_id'];
+				}
+			
 		$product_total = $this->model_catalog_product->getTotalProductSpecials();
 
 		$results = $this->model_catalog_product->getProductSpecials($filter_data);
@@ -209,6 +219,11 @@ class ControllerProductSpecial extends Controller {
 
 		$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 		if (isset($this->request->get['limit'])) {
 			$url .= '&limit=' . $this->request->get['limit'];
 		}
@@ -273,6 +288,11 @@ class ControllerProductSpecial extends Controller {
 
 		$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
 		}
@@ -296,6 +316,11 @@ class ControllerProductSpecial extends Controller {
 		}
 
 		$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
@@ -333,8 +358,18 @@ class ControllerProductSpecial extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/special.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/special.tpl', $data));
 		} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view('default/template/product/special.tpl', $data));
 		}
 	}

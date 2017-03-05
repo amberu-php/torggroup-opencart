@@ -133,6 +133,11 @@ class ControllerProductSearch extends Controller {
 
 		$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 		if (isset($this->request->get['search'])) {
 			$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 		}
@@ -284,6 +289,29 @@ class ControllerProductSearch extends Controller {
 				'limit'               => $limit
 			);
 
+
+				$fmSettings = $this->config->get('mega_filter_settings');
+		
+				if( ! empty( $fmSettings['show_products_from_subcategories'] ) ) {
+					if( ! empty( $fmSettings['level_products_from_subcategories'] ) ) {
+						$fmLevel = (int) $fmSettings['level_products_from_subcategories'];
+						$fmPath = explode( '_', empty( $this->request->get['path'] ) ? '' : $this->request->get['path'] );
+
+						if( $fmPath && count( $fmPath ) >= $fmLevel ) {
+							$filter_data['filter_sub_category'] = '1';
+						}
+					} else {
+						$filter_data['filter_sub_category'] = '1';
+					}
+				}
+				
+				if( ! empty( $this->request->get['manufacturer_id'] ) ) {
+					$filter_data['filter_manufacturer_id'] = (int) $this->request->get['manufacturer_id'];
+				}
+			
+
+				$filter_data['mfp_overwrite_path'] = true;
+			
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
@@ -375,6 +403,11 @@ class ControllerProductSearch extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['search'])) {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 			}
@@ -459,6 +492,11 @@ class ControllerProductSearch extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['search'])) {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
 			}
@@ -502,6 +540,11 @@ class ControllerProductSearch extends Controller {
 			}
 
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['search'])) {
 				$url .= '&search=' . urlencode(html_entity_decode($this->request->get['search'], ENT_QUOTES, 'UTF-8'));
@@ -563,8 +606,18 @@ class ControllerProductSearch extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/search.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/search.tpl', $data));
 		} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view('default/template/product/search.tpl', $data));
 		}
 	}

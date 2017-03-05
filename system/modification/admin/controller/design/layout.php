@@ -253,6 +253,15 @@ class ControllerDesignLayout extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
+
+				if( __FUNCTION__ == 'getForm' && isset( $data['layout_modules'] ) ) {
+					foreach( $data['layout_modules'] as $mfp_k => $mfp_v ) {
+						if( strpos( $mfp_v['code'], 'mega_filter' ) === 0 ) {
+							unset( $data['layout_modules'][$mfp_k] );
+						}
+					}
+				}
+			
 		$this->response->setOutput($this->load->view('design/layout_list.tpl', $data));
 	}
 
@@ -376,6 +385,9 @@ class ControllerDesignLayout extends Controller {
 
 		// Add all the modules which have multiple settings for each module
 		foreach ($extensions as $code) {
+				
+				if( $code == 'mega_filter' ) continue;
+			
 			$this->load->language('module/' . $code);
 
 			$module_data = array();
@@ -402,6 +414,15 @@ class ControllerDesignLayout extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
+
+				if( __FUNCTION__ == 'getForm' && isset( $data['layout_modules'] ) ) {
+					foreach( $data['layout_modules'] as $mfp_k => $mfp_v ) {
+						if( strpos( $mfp_v['code'], 'mega_filter' ) === 0 ) {
+							unset( $data['layout_modules'][$mfp_k] );
+						}
+					}
+				}
+			
 		$this->response->setOutput($this->load->view('design/layout_form.tpl', $data));
 	}
 

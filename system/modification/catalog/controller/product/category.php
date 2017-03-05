@@ -49,6 +49,11 @@ class ControllerProductCategory extends Controller {
 		if (isset($this->request->get['path'])) {
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -64,6 +69,11 @@ class ControllerProductCategory extends Controller {
 			$path = '';
 
 			$parts = explode('_', (string)$this->request->get['path']);
+
+				if( isset( $this->request->get['mfp_path'] ) ) {
+					$parts = explode('_', (string)$this->request->get['mfp_path']);
+				}
+			
 
 			$category_id = (int)array_pop($parts);
 
@@ -93,7 +103,13 @@ class ControllerProductCategory extends Controller {
 			$this->document->setTitle($category_info['meta_title']);
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
-			$this->document->addLink($this->url->link('product/category', 'path=' . $this->request->get['path']), 'canonical');
+			
+				if( ! empty( $this->request->get['mfp_seo_alias'] ) ) {
+					$this->document->addLink( rtrim( $this->url->link('product/category', 'path=' . $this->request->get['path'], true), '/' ) . '/' . $this->request->get['mfp_seo_alias'], 'canonical');
+				} else {
+					$this->document->addLink($this->url->link('product/category', 'path=' . $this->request->get['path']), 'canonical');
+				}
+			
 
 			$data['heading_title'] = $category_info['name'];
 
@@ -143,6 +159,11 @@ class ControllerProductCategory extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 			}
@@ -159,6 +180,30 @@ class ControllerProductCategory extends Controller {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
 
+
+				$fmSettings = $this->config->get('mega_filter_settings');
+				
+				if( isset( $this->request->get['mfp_path'] ) && false !== ( $mfpPos = strpos( $url, '&mfp=' ) ) ) {
+					$mfSt = mb_strpos( $url, '&', $mfpPos+1, 'utf-8');
+					$mfp = $mfSt === false ? $url : mb_substr( $url, $mfpPos, $mfSt-1, 'utf-8' );
+					$url = $mfSt === false ? '' : mb_substr($url, $mfSt, mb_strlen( $url, 'utf-8' ), 'utf-8');				
+					$mfp = preg_replace( '#path(\[[^\]]+\],?|,[^/]+/?)#', '', urldecode( $mfp ) );
+					$mfp = preg_replace( '#&mfp=&|&mfp=#', '', $mfp );
+					
+					if( $mfp ) {
+						$url .= '&mfp=' . urlencode( $mfp );
+					}
+				}
+				
+				if( ! empty( $fmSettings['not_remember_filter_for_subcategories'] ) && false !== ( $mfpPos = strpos( $url, '&mfp=' ) ) ) {
+					$mfUrlBeforeChange = $url;
+					$mfSt = mb_strpos( $url, '&', $mfpPos+1, 'utf-8');
+					$url = $mfSt === false ? '' : mb_substr($url, $mfSt, mb_strlen( $url, 'utf-8' ), 'utf-8');
+				} else if( empty( $fmSettings['not_remember_filter_for_subcategories'] ) && false !== ( $mfpPos = strpos( $url, '&mfp=' ) ) ) {
+					$mfUrlBeforeChange = $url;
+					$url = preg_replace( '/,?path\[[0-9_]+\]/', '', $url );
+				}
+			
 			$data['categories'] = array();
 
 			$results = $this->model_catalog_category->getCategories($category_id);
@@ -177,6 +222,12 @@ class ControllerProductCategory extends Controller {
 				);
 			}
 
+
+				if( isset( $mfUrlBeforeChange ) ) {
+					$url = $mfUrlBeforeChange;
+					unset( $mfUrlBeforeChange );
+				}
+			
 			$data['products'] = array();
  
 				$lim_last=5; 
@@ -203,6 +254,29 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit
 			);
 
+
+				$fmSettings = $this->config->get('mega_filter_settings');
+		
+				if( ! empty( $fmSettings['show_products_from_subcategories'] ) ) {
+					if( ! empty( $fmSettings['level_products_from_subcategories'] ) ) {
+						$fmLevel = (int) $fmSettings['level_products_from_subcategories'];
+						$fmPath = explode( '_', empty( $this->request->get['path'] ) ? '' : $this->request->get['path'] );
+
+						if( $fmPath && count( $fmPath ) >= $fmLevel ) {
+							$filter_data['filter_sub_category'] = '1';
+						}
+					} else {
+						$filter_data['filter_sub_category'] = '1';
+					}
+				}
+				
+				if( ! empty( $this->request->get['manufacturer_id'] ) ) {
+					$filter_data['filter_manufacturer_id'] = (int) $this->request->get['manufacturer_id'];
+				}
+			
+
+				$filter_data['mfp_overwrite_path'] = true;
+			
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
@@ -307,6 +381,11 @@ class ControllerProductCategory extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 			}
@@ -375,6 +454,11 @@ class ControllerProductCategory extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
 			}
@@ -402,6 +486,11 @@ class ControllerProductCategory extends Controller {
 			}
 
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['filter'])) {
 				$url .= '&filter=' . $this->request->get['filter'];
@@ -443,12 +532,27 @@ class ControllerProductCategory extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/category.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/category.tpl', $data));
 			} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view('default/template/product/category.tpl', $data));
 			}
 		} else {
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['path'])) {
 				$url .= '&path=' . $this->request->get['path'];
@@ -504,8 +608,18 @@ class ControllerProductCategory extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
 			} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view('default/template/error/not_found.tpl', $data));
 			}
 		}

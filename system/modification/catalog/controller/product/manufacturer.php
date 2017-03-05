@@ -59,8 +59,18 @@ class ControllerProductManufacturer extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/manufacturer_list.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/manufacturer_list.tpl', $data));
 		} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 			$this->response->setOutput($this->load->view('default/template/product/manufacturer_list.tpl', $data));
 		}
 	}
@@ -123,6 +133,11 @@ class ControllerProductManufacturer extends Controller {
 			$this->document->addLink($this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id']), 'canonical');
 
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
@@ -201,6 +216,9 @@ class ControllerProductManufacturer extends Controller {
 				'limit'                  => $limit
 			);
 
+
+				$filter_data['mfp_overwrite_path'] = true;
+			
 			$product_total = $this->model_catalog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
@@ -292,6 +310,11 @@ class ControllerProductManufacturer extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
@@ -356,6 +379,11 @@ class ControllerProductManufacturer extends Controller {
 
 			$url = '';
 
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -379,6 +407,11 @@ class ControllerProductManufacturer extends Controller {
 			}
 
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
@@ -416,12 +449,27 @@ class ControllerProductManufacturer extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/manufacturer_info.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/product/manufacturer_info.tpl', $data));
 			} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view('default/template/product/manufacturer_info.tpl', $data));
 			}
 		} else {
 			$url = '';
+
+				if( ! empty( $this->request->get['mfp'] ) ) {
+					$url .= '&mfp=' . $this->request->get['mfp'];
+				}
+			
 
 			if (isset($this->request->get['manufacturer_id'])) {
 				$url .= '&manufacturer_id=' . $this->request->get['manufacturer_id'];
@@ -468,8 +516,18 @@ class ControllerProductManufacturer extends Controller {
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/error/not_found.tpl', $data));
 			} else {
+
+				$this->load->model( 'module/mega_filter' );
+				
+				$data = $this->model_module_mega_filter->prepareData( $data );
+			
 				$this->response->setOutput($this->load->view('default/template/error/not_found.tpl', $data));
 			}
 		}
