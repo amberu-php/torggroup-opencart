@@ -3007,7 +3007,7 @@ MegaFilter.prototype = {
 		
 		if( forceOverFilter !== true && self._options.showLoaderOverResults ) {
 			(function(){
-				var w = self._jqContent.outerWidth(),
+				var w = self._jqContent.parent().outerWidth(),
 					h = self._jqContent.outerHeight(),
 					j = self._jqContent.find('.product-list'),
 					k = j.length ? j : self._jqContent.find('.product-grid'),

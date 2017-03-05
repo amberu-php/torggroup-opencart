@@ -1,3 +1,9 @@
+/*amberu*/
+.mfilter-ajax-loader-container {
+	margin: 0px -15px !important;
+}
+/*end*/
+
 #column-left, #column-right {
 	border: 1px solid transparent;
 }
