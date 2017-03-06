@@ -42,6 +42,28 @@
         <input type="text" name="company" value="" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" class="form-control" />
       </div>
     </div>
+      <div class="form-group required hidden">
+          <label class="col-sm-2 control-label" for="input-shipping-country"><?php echo $entry_country; ?></label>
+          <div class="col-sm-10">
+              <select name="country_id" id="input-shipping-country" class="form-control">
+                  <option value=""><?php echo $text_select; ?></option>
+                  <?php foreach ($countries as $country) { ?>
+                      <?php if ($country['country_id'] == $country_id) { ?>
+                          <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+                      <?php } else { ?>
+                          <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+                      <?php } ?>
+                  <?php } ?>
+              </select>
+          </div>
+      </div>
+      <div class="form-group required">
+          <label class="col-sm-2 control-label" for="input-shipping-zone"><?php echo $entry_zone; ?></label>
+          <div class="col-sm-10">
+              <select name="zone_id" id="input-shipping-zone" class="form-control">
+              </select>
+          </div>
+      </div>
     <div class="form-group required">
       <label class="col-sm-2 control-label" for="input-shipping-city"><?php echo $entry_city; ?></label>
       <div class="col-sm-10">
