@@ -11,7 +11,7 @@
       <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname" class="form-control" />
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group hidden">
     <label class="col-sm-2 control-label" for="input-shipping-company"><?php echo $entry_company; ?></label>
     <div class="col-sm-10">
       <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-shipping-company" class="form-control" />
@@ -23,7 +23,7 @@
       <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-shipping-address-1" class="form-control" />
     </div>
   </div>
-  <div class="form-group">
+  <div class="form-group hidden">
     <label class="col-sm-2 control-label" for="input-shipping-address-2"><?php echo $entry_address_2; ?></label>
     <div class="col-sm-10">
       <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-shipping-address-2" class="form-control" />
@@ -35,13 +35,13 @@
       <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-shipping-city" class="form-control" />
     </div>
   </div>
-  <div class="form-group required">
+  <div class="form-group required hidden">
     <label class="col-sm-2 control-label" for="input-shipping-postcode"><?php echo $entry_postcode; ?></label>
     <div class="col-sm-10">
       <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-shipping-postcode" class="form-control" />
     </div>
   </div>
-  <div class="form-group required">
+  <div class="form-group required hidden">
     <label class="col-sm-2 control-label" for="input-shipping-country"><?php echo $entry_country; ?></label>
     <div class="col-sm-10">
       <select name="country_id" id="input-shipping-country" class="form-control">

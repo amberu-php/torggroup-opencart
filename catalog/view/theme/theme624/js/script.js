@@ -463,6 +463,14 @@ function replaceForm() {
         o.parent().append('<label for="' + o.attr('name') + o.attr('value') + '"></label>');
         $('label[for="' + o.attr('name') + o.attr('value') + '"]').insertAfter(o);
     }
+    // amberu
+    o = $('input.checkbox-agree[type=\'checkbox\']');
+    if (o.length) {
+        o.attr('id', o.attr('class') + o.attr('value'));
+        o.parent().append('<label for="' + o.attr('class') + o.attr('value') + '"></label>');
+        $('label[for="' + o.attr('class') + o.attr('value') + '"]').insertAfter(o);
+    }
+    // end
     o = $('select');
     o.selectbox({
         effect: "slide",

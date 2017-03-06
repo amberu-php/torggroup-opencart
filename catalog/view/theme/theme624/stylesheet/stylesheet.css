@@ -2432,6 +2432,14 @@ input[type="checkbox"][name="agree"] + label {
   margin-bottom: 12px; }
   input[type="checkbox"][name="agree"] + label:before, input[type="checkbox"][name="agree"] + label:after {
     top: 0; }
+/*amberu*/
+.checkbox-agree-wrapper {
+  margin: 20px 0px;
+}
+input.checkbox-agree[type="checkbox"] + label {
+  margin-bottom: 12px; }
+input.checkbox-agree[type="checkbox"] + label:before, input.checkbox-agree[type="checkbox"] + label:after {
+  top: 0; }
 
 /*========================================================
                       Menu styles
