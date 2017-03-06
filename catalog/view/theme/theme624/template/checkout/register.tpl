@@ -283,16 +283,14 @@
     </fieldset>
   </div>
 </div>
-<div class="checkbox">
-  <label for="newsletter">
-    <input type="checkbox" name="newsletter" value="1" id="newsletter" />
-    <?php echo $entry_newsletter; ?></label>
+<div class="checkbox-agree-wrapper">
+    <input type="checkbox" class="checkbox-agree" name="newsletter" value="1" id="newsletter" />
+    <b><?php echo $entry_newsletter; ?></b>
 </div>
 <?php if ($shipping_required) { ?>
-<div class="checkbox">
-  <label>
-    <input type="checkbox" name="shipping_address" value="1" checked="checked" />
-    <?php echo $entry_shipping; ?></label>
+<div class="checkbox-agree-wrapper">
+    <input type="checkbox" class="checkbox-agree" name="shipping_address" value="1" checked="checked" />
+    <b><?php echo $entry_shipping; ?></b>
 </div>
 <?php } ?>
 <?php if ($text_agree) { ?>
