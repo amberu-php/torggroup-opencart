@@ -30,7 +30,7 @@
  */
 
 // CHANGE THIS IF YOU EDIT YOUR ADMIN FOLDER NAME
-$admin = 'admin';
+$admin = 'xxxwater16';
 
 // Counters
 $changes = 0;
