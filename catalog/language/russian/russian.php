@@ -18,6 +18,7 @@ $_['text_select']           = ' --- Выберите --- ';
 $_['text_all_zones']        = 'Все зоны';
 $_['text_pagination']       = 'Показано с %d по %d из %d (всего %d страниц)';
 $_['text_loading']          = 'Загрузка...';
+$_['text_price_per_unit'] = "за шт.";
 
 // Buttons
 $_['button_address_add']    = 'Добавить адрес';

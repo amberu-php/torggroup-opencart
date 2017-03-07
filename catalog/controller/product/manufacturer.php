@@ -157,6 +157,7 @@ class ControllerProductManufacturer extends Controller {
 			$data['text_compare'] = sprintf($this->language->get('text_compare'), (isset($this->session->data['compare']) ? count($this->session->data['compare']) : 0));
 			$data['text_sort'] = $this->language->get('text_sort');
 			$data['text_limit'] = $this->language->get('text_limit');
+			$data['text_price_per_unit'] = $this->language->get('text_price_per_unit');
 
 			$data['button_cart'] = $this->language->get('button_cart');
 			$data['button_wishlist'] = $this->language->get('button_wishlist');
@@ -200,6 +201,14 @@ class ControllerProductManufacturer extends Controller {
 					$special = false;
 				}
 
+				// amberu price per unit
+				$amberu_final_price = (float)$result['special'] ?
+					(float)$result['special'] : (float)$result['price'];
+				$units_in_product = $result['units_in_product'];
+				$price_per_unit = $units_in_product > 1 ?
+					$this->currency->format($amberu_final_price / $units_in_product) :
+					$price;
+
 				if ($this->config->get('config_tax')) {
 					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price']);
 				} else {
@@ -218,6 +227,11 @@ class ControllerProductManufacturer extends Controller {
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get('config_product_description_length')) . '..',
 					'price'       => $price,
+
+					// amberu price per unit
+					'units_in_product' => $units_in_product,
+					'price_per_unit' => $price_per_unit,
+
 					'special'     => $special,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
