@@ -2392,6 +2392,15 @@ input[type="radio"]:checked + label:after {
 input[type="checkbox"] {
   display: none; }
 
+.product-options .checkbox + .checkbox {
+  margin-top: 15px;
+  padding-top: 0px;
+}
+
+.product-options .checkbox > input[type="checkbox"] + label {
+  top: 0px;
+}
+
 input[type="checkbox"] + label {
   position: relative;
   top: -16px;
@@ -3335,8 +3344,9 @@ input.checkbox-agree[type="checkbox"] + label:before, input.checkbox-agree[type=
     text-transform: capitalize;
     text-align: left; }
     .product-options .checkbox label:before, .product-options .checkbox label:after {
-      left: 13px;
-      top: 10px; }
+      left: 0px;
+      top: -3px;
+    }
     .product-options .checkbox label:before {
       background: none;
       border: 1px solid #e1e1e1; }
