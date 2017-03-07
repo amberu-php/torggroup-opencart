@@ -679,10 +679,13 @@ a.mfilter-button-more {
 	padding: 5px 0;
 	border-top: 2px solid #ccc;
 }
+.mfilter-price .mfilter-price-inputs {
+	text-align: center;
+}
 #mfilter-opts-price-min, #mfilter-opts-price-max {
-	width: 104px;
-	min-width: 104px;
-	max-width: 104px;
+	width: 100px;
+	min-width: 100px;
+	max-width: 100px;
 	display: inline-block;
 }
 .mfilter-free-container #mfilter-opts-price-min, 

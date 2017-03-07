@@ -230,14 +230,12 @@
 									<?php } else if( $filter['type'] == 'price' ) { ?>
 										<div class="mfilter-option mfilter-price">
 											<div class="mfilter-price-inputs">
-												<?php echo $getSymbolLeft; ?>
 												<input
 													id="mfilter-opts-price-min"
 													type="text"
 													class="form-control"
 													value="<?php echo isset( $params['price'][0] ) ? $params['price'][0] : ''; ?>"
 													/>
-													<?php echo $getSymbolRight; ?>
 													-
 												<?php echo $getSymbolLeft; ?>
 												<input
