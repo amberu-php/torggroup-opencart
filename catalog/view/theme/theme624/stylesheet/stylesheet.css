@@ -621,11 +621,14 @@ header {
     margin: 50px 8px 20px 20px;
     color: rgb(18, 45, 61) !important; }
     header .phone:visited, header .phone:hover, header .phone:active, header .phone:focus {
-      color: rgb(18, 45, 61) !important; }
+      color: rgb(18, 45, 61) !important;
+    }
     header .phone a {
-      color: #fff !important; }
-      header .phone a:visited, header .phone a:hover, header .phone a:active, header .phone a:focus {
-        color: #fff !important; }
+      color: rgb(18, 45, 61);
+    }
+    header .phone a:visited, header .phone a:hover, header .phone a:active, header .phone a:focus {
+      color: rgb(0, 187, 224) !important;
+    }
     header .phone i {
       margin-right: 10px;
       font-size: 24px;
@@ -4407,6 +4410,15 @@ footer .amberu-contacts i {
 footer .amberu-contacts .inner-wrapper {
 	display: inline-block;
 	text-align: left;
+}
+footer .phone:visited, footer .phone:hover, footer .phone:active, footer .phone:focus {
+  color: rgb(18, 45, 61) !important;
+}
+footer .phone a {
+  color: #fff;
+}
+footer .phone a:visited, footer .phone a:hover, footer .phone a:active, footer .phone a:focus {
+  color: rgb(0, 187, 224) !important;
 }
 footer .amberu-contacts .amberu-address {
     font-size: 18px;

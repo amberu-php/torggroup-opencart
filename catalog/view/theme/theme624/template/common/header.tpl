@@ -113,10 +113,13 @@
             <!-- TODO replace hardcoded numbers to admin settings handle of comma separated numbers in input -->
             <?php $telephone = array(); $telephone[0] = "+38 050 669 85 15"; $telephone[1] = "+38‎ 098 981 88 49"; ?>
             <div class="phone">
-                <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></div>
-                <div class="amberu-phone-item"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></div>
+                <div class="amberu-phone-item">
+                    <a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></a>
+                </div>
+                <div class="amberu-phone-item">
+                    <a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></a>
+                </div>
             </div>
-			<!-- <div class="phone"><i class="fa fa-phone"></i><?php echo $telephone; ?></div> -->
 			<?php echo $search; ?>			
 		</div>
 
