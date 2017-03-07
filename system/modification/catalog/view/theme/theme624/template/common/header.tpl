@@ -67,13 +67,13 @@
 			<style type="text/css">
 				.footer-social-icons{margin-top:-10px; margin-right: 50px;}
 				.footer-social-icons a{width:40px; height:40px; text-align:center; margin:0 2px; display:inline-block; font-size:30px; background:#777; color:#fff; border-radius:50px; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;}
-				.footer-social-icons a:hover {color: #fff;}
+				.footer-social-icons a:hover, .footer-social-icons a:visited, .footer-social-icons a:active, .footer-social-icons a:focus {color: #fff;}
 				.footer-social-icons a{-webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;}
 				.footer-social-icons a .fa {font-size: 25px; padding: 14px 0px; margin-right: 1px;}
 				.footer-social-icons a.facebook:hover{background:#39599f;}
 				.footer-social-icons a.twitter:hover{background:#45b0e3;}
 				.footer-social-icons a.vk:hover{background:#507299;}
-				.footer-social-icons a.instagram:hover{background:#000;}
+				.footer-social-icons a.instagram:hover{background:#1f1f1f;}
 				.footer-social-icons a.linkedin:hover{background:#0177B5;}
 				.footer-social-icons a.youtube:hover{background:#C2171D;}
 				.footer-social-icons a.google:hover{background:#E21C1B;}
