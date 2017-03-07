@@ -69,6 +69,17 @@ class ControllerCommonFooter extends Controller {
 			$data['fax'] = $this->config->get('config_fax');
 			
 			
+
+			// Footer Social Icons
+			$data['config_facebookid'] = $this->config->get('config_facebookid');
+			$data['config_twitterid'] = $this->config->get('config_twitterid');
+			$data['config_vkid'] = $this->config->get('config_vkid');
+			$data['config_instagramid'] = $this->config->get('config_instagramid');
+			$data['config_linkedid'] = $this->config->get('config_linkedid');
+			$data['config_youtubeid'] = $this->config->get('config_youtubeid');
+			$data['config_googleid'] = $this->config->get('config_googleid');
+			// End
+			
 		//AMBERU
 		$data['store'] = $this->config->get('config_name');
 		$data['store_owner'] = $this->config->get('config_owner');
