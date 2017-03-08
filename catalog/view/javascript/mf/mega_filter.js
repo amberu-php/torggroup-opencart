@@ -734,9 +734,11 @@ MegaFilter.prototype = {
 		},100);
 
 		// Amberu Note:
+		// Note, below functionality - hide widget via swipe can be disabled in admin panel!!!
+		// But also:
 		// Bugged stuff. The bug is reproduced on touch event when you want to scroll.
-		// The hadler function should trigger when user do horizontal swipe.
-		// But hammer.js thinks like almost all your swipes are horizontal even when you scrolling.
+		// The event handler function should trigger when user do horizontal swipe.
+		// But hammer.js thinks like almost all your swipes are horizontal, even when you scrolling.
 		//
 		// if( control ) {
 		// 	if( self._options.isMobile && self._options.widgetWithSwipe ) {
