@@ -674,7 +674,15 @@ MegaFilter.prototype = {
 				}
 			});
 			
-			var visible = self._options.displayAlwaysAsWidget ? false : column.is(':visible'),
+			function isTheme624ColumnVisible() {
+				var windowWidth = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth);
+				if (column.is('aside')) {
+					return windowWidth > 767;
+				}
+				return column.is(':visible');
+			}
+			
+			var visible = self._options.displayAlwaysAsWidget ? false : isTheme624ColumnVisible(),
 				height	= jQuery(window).height() - 50;
 			
 			if( displayAlwaysAsWidget ) {
