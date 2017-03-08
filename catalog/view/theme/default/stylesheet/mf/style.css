@@ -915,10 +915,17 @@ a.mfilter-button-more {
 	position: absolute;
 	margin: 10px 0 0 228px;
 	cursor: pointer;
-	width: 25px;
-	height: 23px;
-	border: 10px solid #428bca;
-	background: #428bca url('images/icons.png?v8') no-repeat -69px 0;
+	width: 35px;
+	height: 35px;
+	line-height: 35px !important;
+	text-align: center;
+	color: #fff;
+	background: rgb(0, 187, 224);
+	/*border: 10px solid #428bca;*/
+	/*background: #428bca url('images/icons.png?v8') no-repeat -69px 0;*/
+}
+.mfilter-free-button:hover {
+	background: rgb(130, 192, 0);
 }
 .mfilter-direction-rtl .mfilter-free-button {
 	margin: 10px 228px 0 0;

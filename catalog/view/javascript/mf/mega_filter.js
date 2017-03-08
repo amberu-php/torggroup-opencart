@@ -582,7 +582,7 @@ MegaFilter.prototype = {
 			cnt = jQuery('<div class="mfilter-free-container mfilter-free-container-closed mfilter-direction-' + self._options.direction + ( self._options.isMobile ? ' mfilter-mobile' : '' ) + '">')
 				.prependTo( jQuery('body') );
 			
-			btn = jQuery('<div class="mfilter-free-button">')
+			btn = jQuery('<div class="mfilter-free-button fa fa-search">')
 				.appendTo( cnt )
 				.click(function(){
 					if( locked ) return false;
@@ -732,24 +732,29 @@ MegaFilter.prototype = {
 		setTimeout(function(){
 			isVisible();
 		},100);
-		
-		if( control ) {
-			if( self._options.isMobile && self._options.widgetWithSwipe ) {
-				jQuery(document).hammer({
-					direction: Hammer.DIRECTION_HORIZONTAL
-				}).bind('panright panleft', function(e){
-					if( ( self._options.direction == 'rtl' && e.type == 'panleft' ) || ( self._options.direction != 'rtl' && e.type == 'panright' ) ) {
-						if( hidden ) {
-							btn.trigger('click');
-						}
-					} else if( ( self._options.direction == 'rtl' && e.type == 'panright' ) || ( self._options.direction != 'rtl' && e.type == 'panleft' ) ) {
-						if( ! hidden ) {
-							btn.trigger('click');
-						}
-					}
-				});
-			}
-		}
+
+		// Amberu Note:
+		// Bugged stuff. The bug is reproduced on touch event when you want to scroll.
+		// The hadler function should trigger when user do horizontal swipe.
+		// But hammer.js thinks like almost all your swipes are horizontal even when you scrolling.
+		//
+		// if( control ) {
+		// 	if( self._options.isMobile && self._options.widgetWithSwipe ) {
+		// 		jQuery(document).hammer({
+		// 			direction: Hammer.DIRECTION_HORIZONTAL
+		// 		}).bind('panright panleft', function(e){
+		// 			if( ( self._options.direction == 'rtl' && e.type == 'panleft' ) || ( self._options.direction != 'rtl' && e.type == 'panright' ) ) {
+		// 				if( hidden ) {
+		// 					btn.trigger('click');
+		// 				}
+		// 			} else if( ( self._options.direction == 'rtl' && e.type == 'panright' ) || ( self._options.direction != 'rtl' && e.type == 'panleft' ) ) {
+		// 				if( ! hidden ) {
+		// 					btn.trigger('click');
+		// 				}
+		// 			}
+		// 		});
+		// 	}
+		// }
 	},
 	
 	location: function(){
