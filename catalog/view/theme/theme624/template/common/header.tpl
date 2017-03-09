@@ -117,7 +117,7 @@
                     <a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></a>
                 </div>
                 <div class="amberu-phone-item">
-                    <a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></a>
+                    <a href="tel:<?php echo $telephone[1]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></a>
                 </div>
             </div>
 			<?php echo $search; ?>			

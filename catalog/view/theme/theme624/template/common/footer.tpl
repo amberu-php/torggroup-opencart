@@ -58,7 +58,7 @@
 					<a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[0]; ?></a>
 				</div>
 				<div class="phone">
-					<a href="tel:<?php echo $telephone[0]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></a>
+					<a href="tel:<?php echo $telephone[1]; ?>"><i class="fa fa-phone"></i><?php echo $telephone[1]; ?></a>
 				</div>
 				<div class="amberu-address"><i class="fa fa-envelope"></i><?php echo $store_email; ?></div>
 				<div class="amberu-address"><i class="fa fa-hand-o-right"></i><?php 
