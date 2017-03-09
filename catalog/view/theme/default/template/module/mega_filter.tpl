@@ -24,11 +24,11 @@
 	$buttons = array( 'top' => array(), 'bottom' => array() );
 	
 	if( ! empty( $settings['show_reset_button'] ) ) {
-		$buttons['bottom'][] = sprintf( $button_temp, 'mfilter-button-reset', '<i class="mfilter-reset-icon"></i>' . $text_reset_all );
+		$buttons['bottom'][] = sprintf( $button_temp, 'mfilter-button-reset', $text_reset_all . '<i class="mfilter-reset-icon fa fa-close"></i>' );
 	}
 	
 	if( ! empty( $settings['show_top_reset_button'] ) ) {
-		$buttons['top'][] = sprintf( $button_temp, 'mfilter-button-reset', '<i class="mfilter-reset-icon"></i>' . $text_reset_all );
+		$buttons['top'][] = sprintf( $button_temp, 'mfilter-button-reset', $text_reset_all . '<i class="mfilter-reset-icon fa fa-close"></i>' );
 	}
 
 	if( ! empty( $settings['refresh_results'] ) && $settings['refresh_results'] == 'using_button' && ! empty( $settings['place_button'] ) ) {
