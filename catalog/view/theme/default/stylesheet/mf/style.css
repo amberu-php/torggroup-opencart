@@ -152,6 +152,11 @@
 	background: none;
 	color: #000000;
 }
+/*amberu*/
+.mfilter-box > .box-heading {
+	margin: 0px !important;
+}
+/*end*/
 .mfilter-content_top label.mfilter-tb-as-td {
 	white-space: nowrap;
 }

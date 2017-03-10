@@ -56,7 +56,9 @@
 
 <div class="box mfilter-box mfilter-box-<?php echo (int) $_idx; ?> mfilter-<?php echo $_position; ?><?php echo ! empty( $hide_container ) ? ' mfilter-hide-container' : '' ?><?php echo ! empty( $_displayOptionsAs ) && $_displayOptionsAs == 'modern_horizontal' ? ' mfilter-hide' : ''; ?> mfilter-direction-<?php echo $direction; ?>" id="mfilter-box-<?php echo (int) $_idx; ?>">
 	<?php if( $heading_title ) { ?>
-		<h3 class="box-heading"><?php echo $heading_title; ?></h3>
+		<h3 class="box-heading"><i class="fa fa-filter" aria-hidden="true"></i> <?php echo $heading_title; ?></h3>
+	<?php } else { ?>
+		<h3 class="box-heading"><i class="fa fa-filter" aria-hidden="true"></i></h3>
 	<?php } ?>
 	<div class="box-content mfilter-content<?php echo empty( $settings['calculate_number_of_products'] ) || empty( $settings['show_number_of_products'] ) ? ' mfilter-hide-counter' : ''; ?>">
 		<?php echo $buttons['top']; ?>
